@@ -1,8 +1,8 @@
+// Requiring necessary npm packages
 const express = require("express");
 const path = require("path");
-// demo config - not working
-// const connectDB = require("./config/db")
-// connectDB()
+require("dotenv").config();
+
 const colors = require("colors");
 const logger = require("morgan");
 const mongoose = require("mongoose");
@@ -32,7 +32,7 @@ connection.on("connected", () => {
 });
 
 connection.on("error", (err) => {
-    console.log("Mongoose connection error: " + err.red.bold);
+    console.log(`Mongoose connection error: ${error.message}`.red.bold);
 });
 
 // Send every request to the React app
