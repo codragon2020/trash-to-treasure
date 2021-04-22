@@ -50,7 +50,7 @@ const destroyData = async () => {
 };
 
 if (process.argv[2] === "-d") {
-    importData();
+    destroyData();
 } else {
-  destroyData();
+    importData();
 }

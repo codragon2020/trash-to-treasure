@@ -3,9 +3,15 @@ const express = require("express");
 const path = require("path");
 require("dotenv").config();
 
+// Loggers for debugging
 const colors = require("colors");
 const logger = require("morgan");
+
+// Object Data Modeling utility for Mongo/Node
 const mongoose = require("mongoose");
+
+// Sample Products
+const products = require("./data/products")
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -40,6 +46,11 @@ connection.on("error", (err) => {
 app.get("*", function (req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
+
+// Testing GET request for Products in json
+app.get('/api/products', (req, res) => {
+  res.json(products)
+})
 
 app.listen(PORT, function () {
   console.log(`🌎 ==> API server now on port ${PORT}!`.yellow.bold);
