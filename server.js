@@ -3,9 +3,17 @@ const express = require("express");
 const path = require("path");
 require("dotenv").config();
 
+// Loggers for debugging
 const colors = require("colors");
 const logger = require("morgan");
+
+// Object Data Modeling utility for Mongo/Node
 const mongoose = require("mongoose");
+
+// Sample Products
+// const products = require("./data/products")
+const productRoutes = require("./routes/productRoutes.js");
+// const products = require("./data/products.js");
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -37,9 +45,21 @@ connection.on("error", (err) => {
 
 // Send every request to the React app
 // Define any API routes before this runs
-app.get("*", function (req, res) {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
+// app.get("*", function (req, res) {
+//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
+// });
+
+// Testing GET request for Products in json
+// app.get('/api/products', (req, res) => {
+//   res.json(products)
+// })
+
+// app.get('/api/products:id', (req, res) => {
+//   const product = products.find((p) => p._id === req.params.id)
+//   res.json(product)
+// })
+
+app.use('/api/products', productRoutes)
 
 app.listen(PORT, function () {
   console.log(`🌎 ==> API server now on port ${PORT}!`.yellow.bold);
