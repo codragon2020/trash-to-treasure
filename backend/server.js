@@ -12,7 +12,7 @@ const mongoose = require("mongoose");
 
 // Sample Products
 // const products = require("./data/products")
-const productRoutes = require("./routes/productRoutes.js");
+const productRoutes = require("../routes/productRoutes.js");
 // const products = require("./data/products.js");
 
 const PORT = process.env.PORT || 3001;
