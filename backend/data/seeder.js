@@ -3,9 +3,9 @@ const dotenv = require("dotenv");
 const colors = require("colors");
 const users = require("./users.js");
 const products = require("./products.js");
-const User = require("../models/userModel.js");
-const Product = require("../models/productModel.js");
-const Order = require("../models/orderModel.js");
+const User = require("../../models/userModel.js");
+const Product = require("../../models/productModel.js");
+const Order = require("../../models/orderModel.js");
 
 dotenv.config();
 
