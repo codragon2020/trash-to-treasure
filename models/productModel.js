@@ -7,11 +7,6 @@ const productSchema = mongoose.Schema(
       required: true,
       ref: "Seller",
     },
-    buyer: {
-      type: Schema.Types.ObjectId,
-      required: true,
-      ref: "User",
-    },
     name: {
       type: String,
       required: true,
