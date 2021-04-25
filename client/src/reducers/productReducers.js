@@ -4,7 +4,9 @@ import {
   PRODUCT_LIST_FAIL,
 } from "../constants/productConstants";
 
+// Handles the state for the Product List on the homepage
 export const productListReducer = (state = { products: [] }, action) => {
+  // Evaluate the type in the Action object
   switch (action.type) {
     case PRODUCT_LIST_REQUEST:
       return { loading: true, products: [] };
