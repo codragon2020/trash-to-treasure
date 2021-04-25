@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
 const userSchema = mongoose.Schema(
   {
@@ -20,6 +21,16 @@ const userSchema = mongoose.Schema(
       required: true,
       default: false,
     },
+    seller: {
+      type: Schema.Types.ObjectId,
+      ref: "Seller",
+    },
+    orders: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Order",
+      },
+    ],
   },
   {
     timestamps: true,
