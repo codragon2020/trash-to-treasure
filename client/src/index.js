@@ -8,6 +8,7 @@ import App from "./App";
 import registerServiceWorker from "./registerServiceWorker";
 
 ReactDOM.render(
+  // Wrapping app with Provider which takes in store
   <Provider store={store}>
     <App />
   </Provider>,
