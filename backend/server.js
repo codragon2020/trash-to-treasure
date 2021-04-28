@@ -1,6 +1,13 @@
 // Requiring necessary npm packages
 const express = require("express");
 const path = require("path");
+const cors = require("cors");
+const passport = require("passport");
+const passortLocal = require("passport-local").Strategy;
+const cookieParser = require("cookie-parser");
+const bcrypt = require("bcryptjs");
+const expressSession = require("express-session");
+const bodyParser = require("body-parser");
 require("dotenv").config();
 
 // Loggers for debugging
@@ -27,39 +34,50 @@ if (process.env.NODE_ENV === "production") {
 }
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/t2t", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-    useCreateIndex: true,
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false,
+  useCreateIndex: true,
 });
 
 const connection = mongoose.connection;
 
 connection.on("connected", () => {
-    console.log("Mongoose connected successfully.".cyan.bold);
+  console.log("Mongoose connected successfully.".cyan.bold);
 });
 
 connection.on("error", (err) => {
-    console.log(`Mongoose connection error: ${error.message}`.red.bold);
+  console.log(`Mongoose connection error: ${error.message}`.red.bold);
 });
 
-// Send every request to the React app
-// Define any API routes before this runs
-// app.get("*", function (req, res) {
-//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
-// });
+// Middleware
+app.use(bodyParser.json);
+app.use(express.urlencoded({ extended: true }));
+app.use(cors({
+  origin: "http://localhost:3000"  // <-- location of the react app we're connecting to
+  credentials: true
+}))
 
-// Testing GET request for Products in json
-// app.get('/api/products', (req, res) => {
-//   res.json(products)
-// })
+app.use(session({
+  secret: "secretcode",
+  resave: true,
+  saveUninitialized: true
+}))
 
-// app.get('/api/products:id', (req, res) => {
-//   const product = products.find((p) => p._id === req.params.id)
-//   res.json(product)
-// })
+app.use(cookieParser("secretcode"))
 
-app.use('/api/products', productRoutes)
+// Routes
+app.post("/login", (req, res) => {
+  console.log(req.body);
+})
+app.post("/register", (req, res) => {
+  console.log(req.body);
+})
+app.get("/user", (req, res) => {
+  console.log(req.body);
+})
+
+app.use("/api/products", productRoutes);
 
 app.listen(PORT, function () {
   console.log(`🌎 ==> API server now on port ${PORT}!`.yellow.bold);

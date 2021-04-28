@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { Container } from 'react-bootstrap'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import Authenticate from './screens/Authenticate'
 import HomeScreen from './screens/HomeScreen'
 import ProductScreen from './screens/ProductScreen'
 
@@ -12,7 +13,8 @@ const App = () => {
       <Header />
       <main className='py-3'>
         <Container>
-          <Route path='/' component={HomeScreen} exact />
+          <Route path='/' component={Authenticate} exact />
+          <Route path='/home' component={HomeScreen} exact />
           <Route path='/product/:id' component={ProductScreen} />
         </Container>
       </main>
