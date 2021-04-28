@@ -6,7 +6,7 @@ const passport = require("passport");
 const passortLocal = require("passport-local").Strategy;
 const cookieParser = require("cookie-parser");
 const bcrypt = require("bcryptjs");
-const expressSession = require("express-session");
+const session = require("express-session");
 const bodyParser = require("body-parser");
 require("dotenv").config();
 
@@ -54,7 +54,7 @@ connection.on("error", (err) => {
 app.use(bodyParser.json);
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({
-  origin: "http://localhost:3000"  // <-- location of the react app we're connecting to
+  origin: "http://localhost:3000",  // <-- location of the react app we're connecting to
   credentials: true
 }))
 
@@ -73,9 +73,7 @@ app.post("/login", (req, res) => {
 app.post("/register", (req, res) => {
   console.log(req.body);
 })
-app.get("/user", (req, res) => {
-  console.log(req.body);
-})
+app.get("/user", (req, res) => {})
 
 app.use("/api/products", productRoutes);
 
