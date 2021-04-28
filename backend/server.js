@@ -51,7 +51,7 @@ connection.on("error", (err) => {
 });
 
 // Middleware
-app.use(bodyParser.json);
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({
   origin: "http://localhost:3000",  // <-- location of the react app we're connecting to
@@ -72,6 +72,8 @@ app.post("/login", (req, res) => {
 })
 app.post("/register", (req, res) => {
   console.log(req.body);
+  res.send('user ' + req.params.id)
+
 })
 app.get("/user", (req, res) => {})
 

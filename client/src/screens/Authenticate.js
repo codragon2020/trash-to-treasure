@@ -5,22 +5,41 @@ function Authenticate() {
   const [registerUsername, setRegisterUsername] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
   const [loginUsername, setLoginUsername] = useState("");
-  const [LoginPassword, setLoginPassword] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
   const [data, setData] = useState(null);
   const register = () => {
     axios({
-      method: "POST",
+      method: "post",
+      url: "/register",
       data: {
         username: registerUsername,
-        password: registerPassword,
+        password: registerPassword
       },
-      withCredentials: true,
-      url: "http://localhost:3001/register",
+      withCredentials: true
+      
     }).then((res) => console.log(res));
   };
 
-  const login = () => {};
-  const getUser = () => {};
+  const login = () => {
+    axios({
+      method: "post",
+      url: "/login",
+      data: {
+        username: loginUsername,
+        password: loginPassword
+      },
+      withCredentials: true
+      
+    }).then((res) => console.log(res));
+  };
+  const getUser = () => {
+    axios({
+      method: "get",
+      url: "/getUser",
+      withCredentials: true
+      
+    }).then((res) => console.log(res));
+  };
 
   return (
     <div className="App">
