@@ -5,36 +5,48 @@ const productSchema = mongoose.Schema(
     user: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
-      ref: "User",
+      ref: "User"
     },
     name: {
       type: String,
-      required: true,
+      required: true
     },
     image: {
       type: String,
-      required: true,
+      required: true
     },
     brand: {
       type: String,
-      required: true,
+      required: true
     },
     category: {
       type: String,
-      required: true,
+      required: true
     },
     description: {
       type: String,
-      required: true,
+      required: true
     },
     price: {
       type: Number,
       required: true,
-      default: 0,
+      default: 0
     },
+    contact_email: {
+      type: String,
+      required: true
+    },
+    contact_phone: {
+      type: String,
+      required: true
+    },
+    contact_name: {
+      type: String,
+      required: true
+    }
   },
   {
-    timestamps: true,
+    timestamps: true
   }
 );
 
