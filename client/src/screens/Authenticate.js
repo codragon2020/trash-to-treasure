@@ -13,10 +13,9 @@ function Authenticate() {
       url: "/register",
       data: {
         username: registerUsername,
-        password: registerPassword
+        password: registerPassword,
       },
-      withCredentials: true
-      
+      withCredentials: true,
     }).then((res) => console.log(res));
   };
 
@@ -26,18 +25,17 @@ function Authenticate() {
       url: "/login",
       data: {
         username: loginUsername,
-        password: loginPassword
+        password: loginPassword,
       },
-      withCredentials: true
-      
+      withCredentials: true,
     }).then((res) => console.log(res));
   };
   const getUser = () => {
     axios({
       method: "get",
-      url: "/getUser",
-      withCredentials: true
-    }).then((res) => console.log(res));
+      url: "/user",
+      withCredentials: true,
+    }).then((res) => setData(res.data));
   };
 
   return (
@@ -69,6 +67,7 @@ function Authenticate() {
       <div>
         <h1>Get User</h1>
         <button onClick={getUser}>Submit</button>
+        {data ? <h1>Welcome Back {data.username}</h1> : null}
       </div>
     </div>
   );

@@ -70,11 +70,25 @@ app.use(
 );
 
 app.use(cookieParser("secretcode"));
+app.use(passport.initialize());
+app.use(passport.session());
+require("./passportConfig")(passport);
+
+// ----------------End of Middleware---------------------
 
 // Routes
-app.post("/login", (req, res) => {
-  console.log(req.body);
-  res.send();
+app.post("/login", (req, res, next) => {
+  passport.authenticate("local", (err, user, info) => {
+    if (err) throw err;
+    if (!user) res.send("No User Exists");
+    else {
+      req.logIn(user, (err) => {
+        if (err) throw err;
+        res.send("Successfully Authenticated");
+        console.log(req.user);
+      });
+    }
+  })(req, res, next);
 });
 app.post("/register", (req, res) => {
   console.log(req.body);
@@ -94,7 +108,7 @@ app.post("/register", (req, res) => {
   });
 });
 app.get("/user", (req, res) => {
-  res.send();
+  res.send(req.user); // The req.user stores the entire user that has been authenticated inside of it.
 });
 
 app.use("/api/products", productRoutes);
