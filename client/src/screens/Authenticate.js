@@ -37,7 +37,6 @@ function Authenticate() {
       method: "get",
       url: "/getUser",
       withCredentials: true
-      
     }).then((res) => console.log(res));
   };
 

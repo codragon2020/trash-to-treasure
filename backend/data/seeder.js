@@ -9,19 +9,6 @@ const Order = require("../../models/orderModel.js");
 
 dotenv.config();
 
-import React from 'react'
-
-const seeder = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
-
-export default seeder
-
-
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/t2t");
 
 const importData = async () => {

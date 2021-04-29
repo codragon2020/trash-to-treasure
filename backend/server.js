@@ -8,6 +8,7 @@ const cookieParser = require("cookie-parser");
 const bcrypt = require("bcryptjs");
 const session = require("express-session");
 const bodyParser = require("body-parser");
+const User = require("../models/userModel");
 require("dotenv").config();
 
 // Loggers for debugging
@@ -53,29 +54,48 @@ connection.on("error", (err) => {
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors({
-  origin: "http://localhost:3000",  // <-- location of the react app we're connecting to
-  credentials: true
-}))
+app.use(
+  cors({
+    origin: "http://localhost:3000", // <-- location of the react app we're connecting to
+    credentials: true,
+  })
+);
 
-app.use(session({
-  secret: "secretcode",
-  resave: true,
-  saveUninitialized: true
-}))
+app.use(
+  session({
+    secret: "secretcode",
+    resave: true,
+    saveUninitialized: true,
+  })
+);
 
-app.use(cookieParser("secretcode"))
+app.use(cookieParser("secretcode"));
 
 // Routes
 app.post("/login", (req, res) => {
   console.log(req.body);
-})
+  res.send();
+});
 app.post("/register", (req, res) => {
   console.log(req.body);
-  res.send('user ' + req.params.id)
+  User.findOne({ username: req.body.username }, async (err, doc) => {
+    if (err) throw err;
+    if (doc) res.send("User Already Exists");
+    if (!doc) {
+      const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
-})
-app.get("/user", (req, res) => {})
+      const newUser = new User({
+        username: req.body.username,
+        password: hashedPassword,
+      });
+      await newUser.save();
+      res.send("User Created");
+    }
+  });
+});
+app.get("/user", (req, res) => {
+  res.send();
+});
 
 app.use("/api/products", productRoutes);
 
