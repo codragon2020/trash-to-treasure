@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import { Redirect } from "react-router-dom";
 import axios from "axios";
 
-function Authenticate() {
+function Authenticate(props) {
   const [registerUsername, setRegisterUsername] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
   const [loginUsername, setLoginUsername] = useState("");
@@ -13,9 +14,10 @@ function Authenticate() {
       url: "/register",
       data: {
         username: registerUsername,
-        password: registerPassword,
+        password: registerPassword
       },
-      withCredentials: true,
+      withCredentials: true
+      
     }).then((res) => console.log(res));
   };
 
@@ -25,16 +27,20 @@ function Authenticate() {
       url: "/login",
       data: {
         username: loginUsername,
-        password: loginPassword,
+        password: loginPassword
       },
-      withCredentials: true,
-    }).then((res) => console.log(res));
+      withCredentials: true
+      
+    }).then((res) => {
+      console.log(res)
+      props.setUser({...res.data.user, loggedIn:true})
+    });
   };
   const getUser = () => {
     axios({
       method: "get",
       url: "/user",
-      withCredentials: true,
+      withCredentials: true
     }).then((res) => setData(res.data));
   };
 
