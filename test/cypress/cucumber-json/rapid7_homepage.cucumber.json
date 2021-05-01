@@ -1,0 +1,673 @@
+[
+  {
+    "description": "              I want to navigate to Rapid7 Homepage to do some exploratory testing.",
+    "keyword": "Feature",
+    "name": "Rapid7 Homepage",
+    "line": 1,
+    "id": "rapid7-homepage",
+    "tags": [],
+    "uri": "rapid7_homepage.feature",
+    "elements": [
+      {
+        "id": "rapid7-homepage;explore-insightidr-product-of-rapid7",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "Explore InsightIDR product of Rapid7",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "I go to Rapid7 page",
+            "result": {
+              "status": "passed",
+              "duration": 4169000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 6,
+            "name": "I should see page title as \"Cybersecurity & Compliance Solutions & Services | Rapid7\"",
+            "result": {
+              "status": "passed",
+              "duration": 34000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 7,
+            "name": "I click Products",
+            "result": {
+              "status": "passed",
+              "duration": 320000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "I select InsightIDR",
+            "result": {
+              "status": "passed",
+              "duration": 3280000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 9,
+            "name": "\"InsightIDR is your security center\" should be displayed for InsightIDR",
+            "result": {
+              "status": "passed",
+              "duration": 129000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "rapid7-homepage;explore-different-products-of-rapid7",
+        "keyword": "Scenario",
+        "line": 21,
+        "name": "Explore different products of Rapid7",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 12,
+            "name": "I go to Rapid7 page",
+            "result": {
+              "status": "passed",
+              "duration": 2881000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 13,
+            "name": "I should see page title as \"Cybersecurity & Compliance Solutions & Services | Rapid7\"",
+            "result": {
+              "status": "passed",
+              "duration": 29000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "I click Products",
+            "result": {
+              "status": "passed",
+              "duration": 220000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "I select \"InsightIDR\"",
+            "result": {
+              "status": "passed",
+              "duration": 2654000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 16,
+            "name": "\"Rapid7’s InsightIDR is your security center\" should be displayed",
+            "result": {
+              "status": "passed",
+              "duration": 126000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "rapid7-homepage;explore-different-products-of-rapid7",
+        "keyword": "Scenario",
+        "line": 22,
+        "name": "Explore different products of Rapid7",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 12,
+            "name": "I go to Rapid7 page",
+            "result": {
+              "status": "passed",
+              "duration": 3239000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 13,
+            "name": "I should see page title as \"Cybersecurity & Compliance Solutions & Services | Rapid7\"",
+            "result": {
+              "status": "passed",
+              "duration": 24000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "I click Products",
+            "result": {
+              "status": "passed",
+              "duration": 216000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "I select \"InsightVM\"",
+            "result": {
+              "status": "passed",
+              "duration": 3403000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 16,
+            "name": "\"InsightVM leverages this platform for live vulnerability and endpoint analytics.\" should be displayed",
+            "result": {
+              "status": "passed",
+              "duration": 97000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "rapid7-homepage;explore-different-products-of-rapid7",
+        "keyword": "Scenario",
+        "line": 23,
+        "name": "Explore different products of Rapid7",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 12,
+            "name": "I go to Rapid7 page",
+            "result": {
+              "status": "passed",
+              "duration": 3161000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 13,
+            "name": "I should see page title as \"Cybersecurity & Compliance Solutions & Services | Rapid7\"",
+            "result": {
+              "status": "passed",
+              "duration": 21000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "I click Products",
+            "result": {
+              "status": "passed",
+              "duration": 216000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "I select \"InsightAppSec\"",
+            "result": {
+              "status": "passed",
+              "duration": 2554000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 16,
+            "name": "\"Free InsightAppSec Trial\" should be displayed",
+            "result": {
+              "status": "passed",
+              "duration": 112000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "rapid7-homepage;explore-different-products-of-rapid7",
+        "keyword": "Scenario",
+        "line": 24,
+        "name": "Explore different products of Rapid7",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 12,
+            "name": "I go to Rapid7 page",
+            "result": {
+              "status": "passed",
+              "duration": 2892000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 13,
+            "name": "I should see page title as \"Cybersecurity & Compliance Solutions & Services | Rapid7\"",
+            "result": {
+              "status": "passed",
+              "duration": 19000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "I click Products",
+            "result": {
+              "status": "passed",
+              "duration": 302000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "I select \"InsightConnect\"",
+            "result": {
+              "status": "passed",
+              "duration": 2427000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 16,
+            "name": "\"InsightConnect is Rapid7’s security orchestration and automation response (SOAR)\" should be displayed",
+            "result": {
+              "status": "passed",
+              "duration": 110000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "rapid7-homepage;explore-different-products-of-rapid7",
+        "keyword": "Scenario",
+        "line": 25,
+        "name": "Explore different products of Rapid7",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 12,
+            "name": "I go to Rapid7 page",
+            "result": {
+              "status": "passed",
+              "duration": 2763000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 13,
+            "name": "I should see page title as \"Cybersecurity & Compliance Solutions & Services | Rapid7\"",
+            "result": {
+              "status": "passed",
+              "duration": 10000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "I click Products",
+            "result": {
+              "status": "passed",
+              "duration": 192000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "I select \"InsightOps\"",
+            "result": {
+              "status": "passed",
+              "duration": 2488000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 16,
+            "name": "\"insightOps\" should be displayed",
+            "result": {
+              "status": "passed",
+              "duration": 92000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "rapid7-homepage;explore-different-products-of-rapid7",
+        "keyword": "Scenario",
+        "line": 26,
+        "name": "Explore different products of Rapid7",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 12,
+            "name": "I go to Rapid7 page",
+            "result": {
+              "status": "passed",
+              "duration": 3132000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 13,
+            "name": "I should see page title as \"Cybersecurity & Compliance Solutions & Services | Rapid7\"",
+            "result": {
+              "status": "passed",
+              "duration": 27000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "I click Products",
+            "result": {
+              "status": "passed",
+              "duration": 203000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "I select \"DivvyCloud\"",
+            "result": {
+              "status": "passed",
+              "duration": 2381000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 16,
+            "name": "\"Experience the freedom to innovate securely\" should be displayed",
+            "result": {
+              "status": "passed",
+              "duration": 119000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "rapid7-homepage;explore-different-products-of-rapid7",
+        "keyword": "Scenario",
+        "line": 27,
+        "name": "Explore different products of Rapid7",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 12,
+            "name": "I go to Rapid7 page",
+            "result": {
+              "status": "passed",
+              "duration": 3082000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 13,
+            "name": "I should see page title as \"Cybersecurity & Compliance Solutions & Services | Rapid7\"",
+            "result": {
+              "status": "passed",
+              "duration": 13000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "I click Products",
+            "result": {
+              "status": "passed",
+              "duration": 244000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "I select \"Metasploit\"",
+            "result": {
+              "status": "passed",
+              "duration": 2252000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 16,
+            "name": "\"metasploit\" should be displayed",
+            "result": {
+              "status": "passed",
+              "duration": 95000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "rapid7-homepage;explore-different-products-of-rapid7",
+        "keyword": "Scenario",
+        "line": 28,
+        "name": "Explore different products of Rapid7",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 12,
+            "name": "I go to Rapid7 page",
+            "result": {
+              "status": "passed",
+              "duration": 2994000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 13,
+            "name": "I should see page title as \"Cybersecurity & Compliance Solutions & Services | Rapid7\"",
+            "result": {
+              "status": "passed",
+              "duration": 23000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "I click Products",
+            "result": {
+              "status": "passed",
+              "duration": 187000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "I select \"Nexpose\"",
+            "result": {
+              "status": "passed",
+              "duration": 1991000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 16,
+            "name": "\"Nexpose Vulnerability Scanner\" should be displayed",
+            "result": {
+              "status": "passed",
+              "duration": 93000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "rapid7-homepage;explore-different-products-of-rapid7",
+        "keyword": "Scenario",
+        "line": 29,
+        "name": "Explore different products of Rapid7",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 12,
+            "name": "I go to Rapid7 page",
+            "result": {
+              "status": "passed",
+              "duration": 2613000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 13,
+            "name": "I should see page title as \"Cybersecurity & Compliance Solutions & Services | Rapid7\"",
+            "result": {
+              "status": "passed",
+              "duration": 73000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "I click Products",
+            "result": {
+              "status": "passed",
+              "duration": 250000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "I select \"AppSpider\"",
+            "result": {
+              "status": "passed",
+              "duration": 2274000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 16,
+            "name": "\"appspider\" should be displayed",
+            "result": {
+              "status": "passed",
+              "duration": 102000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "rapid7-homepage;explore-different-products-of-rapid7",
+        "keyword": "Scenario",
+        "line": 30,
+        "name": "Explore different products of Rapid7",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 12,
+            "name": "I go to Rapid7 page",
+            "result": {
+              "status": "passed",
+              "duration": 3018000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 13,
+            "name": "I should see page title as \"Cybersecurity & Compliance Solutions & Services | Rapid7\"",
+            "result": {
+              "status": "passed",
+              "duration": 14000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "I click Products",
+            "result": {
+              "status": "passed",
+              "duration": 271000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "I select \"tCell by Rapid7\"",
+            "result": {
+              "status": "passed",
+              "duration": 2268000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 16,
+            "name": "\"The next-gen cloud WAF and RASP tool that gives you complete visibility for application monitoring and protection.\" should be displayed",
+            "result": {
+              "status": "passed",
+              "duration": 101000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

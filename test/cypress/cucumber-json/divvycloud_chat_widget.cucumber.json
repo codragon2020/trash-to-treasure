@@ -1,0 +1,76 @@
+[
+  {
+    "description": "              I want to test",
+    "keyword": "Feature",
+    "name": "DivvyCloud Chat Widget",
+    "line": 1,
+    "id": "divvycloud-chat-widget",
+    "tags": [],
+    "uri": "divvycloud_chat_widget.feature",
+    "elements": [
+      {
+        "id": "divvycloud-chat-widget;verify-chat-widget-is-present",
+        "keyword": "Scenario",
+        "line": 14,
+        "name": "Verify Chat Widget is present",
+        "tags": [
+          {
+            "name": "@test",
+            "line": 4
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 6,
+            "name": "I go to DivvyCloud page",
+            "result": {
+              "status": "passed",
+              "duration": 842000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "I should see page title as \"DivvyCloud - Protecting Cloud & Container Environments\"",
+            "result": {
+              "status": "failed",
+              "duration": 4014000000,
+              "error_message": "AssertionError: Timed out retrying after 4000ms: expected 'T2T' to equal 'DivvyCloud - Protecting Cloud & Container Environments'\n    + expected - actual\n\n    -'T2T'\n    +'DivvyCloud - Protecting Cloud & Container Environments'\n\n    at Context.eval (http://localhost:3000/__cypress/tests?p=cypress/integration/cucumber-tests/divvycloud_chat_widget.feature:17:14)\n    at Context.resolveAndRunStepDefinition (http://localhost:3000/__cypress/tests?p=cypress/integration/cucumber-tests/divvycloud_chat_widget.feature:11859:9)\n    at Context.eval (http://localhost:3000/__cypress/tests?p=cypress/integration/cucumber-tests/divvycloud_chat_widget.feature:11201:35)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "I should see chat Widget",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 9,
+            "name": "I click chat Widget",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 10,
+            "name": "chat window should pop up with \"I am here to help with your cloud and container security questions if you need me.\"",
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

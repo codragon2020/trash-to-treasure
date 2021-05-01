@@ -1,0 +1,113 @@
+[
+  {
+    "description": "              I want to navigate to DivvyCloud Homepage to do some exploratory testing.",
+    "keyword": "Feature",
+    "name": "DivvyCloud Homepage Guide",
+    "line": 1,
+    "id": "divvycloud-homepage-guide",
+    "tags": [],
+    "uri": "divvycloud_guide.feature",
+    "elements": [
+      {
+        "id": "divvycloud-homepage-guide;verify-site-banner-is-present",
+        "keyword": "Scenario",
+        "line": 18,
+        "name": "Verify site banner is present",
+        "tags": [
+          {
+            "name": "@test",
+            "line": 4
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 6,
+            "name": "I go to DivvyCloud page",
+            "result": {
+              "status": "passed",
+              "duration": 2344000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "I should see page title as \"DivvyCloud - Protecting Cloud & Container Environments\"",
+            "result": {
+              "status": "passed",
+              "duration": 17000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "I should see site banner",
+            "result": {
+              "status": "failed",
+              "duration": 4018000000,
+              "error_message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.banner-content > p`, but never found it.\n    at Context.eval (https://divvycloud.com/__cypress/tests?p=cypress/integration/cucumber-tests/divvycloud_guide.feature:21:6)\n    at Context.resolveAndRunStepDefinition (https://divvycloud.com/__cypress/tests?p=cypress/integration/cucumber-tests/divvycloud_guide.feature:11880:9)\n    at Context.eval (https://divvycloud.com/__cypress/tests?p=cypress/integration/cucumber-tests/divvycloud_guide.feature:11222:35)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "Banner text should contain \"Which cloud security solution is right for you\"",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "I click the banner and navigate to the guide page",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 11,
+            "name": "the contact form should appear",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 12,
+            "name": "the submit button should be disabled",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 13,
+            "name": "I fill all the required fields in the form",
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 14,
+            "name": "the submit button should be enabled and be of expected color",
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
