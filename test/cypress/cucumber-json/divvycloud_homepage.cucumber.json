@@ -1,0 +1,183 @@
+[
+  {
+    "description": "              I want to navigate to DivvyCloud Homepage to do some exploratory testing.",
+    "keyword": "Feature",
+    "name": "DivvyCloud Homepage",
+    "line": 1,
+    "id": "divvycloud-homepage",
+    "tags": [],
+    "uri": "divvycloud_homepage.feature",
+    "elements": [
+      {
+        "id": "divvycloud-homepage;verify-site-banner-is-present",
+        "keyword": "Scenario",
+        "line": 15,
+        "name": "Verify site banner is present",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 6,
+            "name": "I go to DivvyCloud page",
+            "result": {
+              "status": "passed",
+              "duration": 2127000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "I should see page title as \"DivvyCloud - Protecting Cloud & Container Environments\"",
+            "result": {
+              "status": "passed",
+              "duration": 23000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "I should see site banner",
+            "result": {
+              "status": "failed",
+              "duration": 4019000000,
+              "error_message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.banner-content > p`, but never found it.\n    at Context.eval (https://divvycloud.com/__cypress/tests?p=cypress/integration/cucumber-tests/divvycloud_homepage.feature:21:6)\n    at Context.resolveAndRunStepDefinition (https://divvycloud.com/__cypress/tests?p=cypress/integration/cucumber-tests/divvycloud_homepage.feature:11886:9)\n    at Context.eval (https://divvycloud.com/__cypress/tests?p=cypress/integration/cucumber-tests/divvycloud_homepage.feature:11228:35)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "Banner text should contain \"Which cloud security solution is right for you\"",
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      },
+      {
+        "id": "divvycloud-homepage;top-header-navbar",
+        "keyword": "Scenario",
+        "line": 17,
+        "name": "Top header navbar",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 6,
+            "name": "I go to DivvyCloud page",
+            "result": {
+              "status": "passed",
+              "duration": 39804000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "I should see page title as \"DivvyCloud - Protecting Cloud & Container Environments\"",
+            "result": {
+              "status": "passed",
+              "duration": 19000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 18,
+            "name": "I should see \"docs\",\"support\",\"pricing\" and \"request_a_demo\"",
+            "result": {
+              "status": "passed",
+              "duration": 8037000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "divvycloud-homepage;main-header-navbar",
+        "keyword": "Scenario",
+        "line": 20,
+        "name": "Main header navbar",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 6,
+            "name": "I go to DivvyCloud page",
+            "result": {
+              "status": "passed",
+              "duration": 4697000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "I should see page title as \"DivvyCloud - Protecting Cloud & Container Environments\"",
+            "result": {
+              "status": "passed",
+              "duration": 15000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 21,
+            "name": "I should see \"divvy_logo\", \"why_divvy\", \"platform\", \"solutions\", \"customers\", \"resources\" and \"company\"",
+            "result": {
+              "status": "passed",
+              "duration": 98000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "divvycloud-homepage;interactive-key-capabilities",
+        "keyword": "Scenario",
+        "line": 23,
+        "name": "Interactive Key Capabilities",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 6,
+            "name": "I go to DivvyCloud page",
+            "result": {
+              "status": "passed",
+              "duration": 2263000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "I should see page title as \"DivvyCloud - Protecting Cloud & Container Environments\"",
+            "result": {
+              "status": "passed",
+              "duration": 18000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 24,
+            "name": "I should see \"iam_governance\", \"infra_as_code_security\", \"threat_protection\", \"posture_management\", \"risk_assess_audit\", \"unified_visibility_monitoring\", \"extensible_platform\" and \"automation_rt_remediation\"",
+            "result": {
+              "status": "passed",
+              "duration": 130000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

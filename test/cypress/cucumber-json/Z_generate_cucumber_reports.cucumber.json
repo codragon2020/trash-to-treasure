@@ -1,0 +1,33 @@
+[
+  {
+    "description": "              I want to navigate to Rapid7 Homepage to do some exploratory testing.",
+    "keyword": "Feature",
+    "name": "Generate Cucumber Reports",
+    "line": 1,
+    "id": "generate-cucumber-reports",
+    "tags": [],
+    "uri": "Z_generate_cucumber_reports.feature",
+    "elements": [
+      {
+        "id": "generate-cucumber-reports;explore-different-products-of-rapid7",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "Explore different products of Rapid7",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "I generate report for all the features",
+            "result": {
+              "status": "passed",
+              "duration": 1364000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
