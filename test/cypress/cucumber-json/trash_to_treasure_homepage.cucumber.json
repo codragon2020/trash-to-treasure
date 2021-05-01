@@ -28,7 +28,7 @@
             "name": "I go to trashtotreasure homepage",
             "result": {
               "status": "passed",
-              "duration": 840000000
+              "duration": 816000000
             }
           },
           {
@@ -63,7 +63,7 @@
             "name": "I go to trashtotreasure homepage",
             "result": {
               "status": "passed",
-              "duration": 151000000
+              "duration": 153000000
             }
           },
           {
@@ -73,7 +73,7 @@
             "name": "navbar should display \"Trash to Treasure\"",
             "result": {
               "status": "passed",
-              "duration": 24000000
+              "duration": 20000000
             }
           }
         ]

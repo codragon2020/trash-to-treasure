@@ -5,9 +5,9 @@
     "passes": 3,
     "pending": 0,
     "failures": 0,
-    "start": "2021-05-01T02:44:11.649Z",
-    "end": "2021-05-01T02:44:21.395Z",
-    "duration": 2404,
+    "start": "2021-05-01T02:58:32.600Z",
+    "end": "2021-05-01T02:58:42.055Z",
+    "duration": 2232,
     "testsRegistered": 3,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "c0f8878f-f6dd-4f2e-b0db-30d49f03d05e",
+      "uuid": "f743ee72-77b2-40bc-8d61-a942f41b9cd7",
       "title": "",
       "fullFile": "cypress/integration/cucumber-tests/trash_to_treasure_homepage.feature",
       "file": "cypress/integration/cucumber-tests/trash_to_treasure_homepage.feature",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "b4302683-7e15-48a6-9cc4-667f37f9fed7",
+          "uuid": "1e058828-439c-4774-8df2-a1f4e6374989",
           "title": "Trash to Treasure Homepage",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Verify title is displayed properly",
               "fullTitle": "Trash to Treasure Homepage Verify title is displayed properly",
               "timedOut": null,
-              "duration": 787,
+              "duration": 768,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "const state = window.testState;\nreturn cy\n  .then(() => state.onStartScenario(scenario, indexedSteps))\n  .then(() =>\n    resolveAndRunBeforeHooks.call(this, scenario.tags, state.feature.name)\n  )\n  .then(() =>\n    indexedSteps.forEach(step =>\n      stepTest.call(this, state, step, rowData)\n    )\n  )\n  .then(() =>\n    resolveAndRunAfterHooks.call(this, scenario.tags, state.feature.name)\n  )\n  .then(() => state.onFinishScenario(scenario));",
               "err": {},
-              "uuid": "2479956e-4278-483b-bb23-de513e7f4e49",
-              "parentUUID": "b4302683-7e15-48a6-9cc4-667f37f9fed7",
+              "uuid": "8a86ad04-768b-4e44-9dc5-27c3dc712d69",
+              "parentUUID": "1e058828-439c-4774-8df2-a1f4e6374989",
               "isHook": false,
               "skipped": false
             },
@@ -56,7 +56,7 @@
               "title": "Verify Navbar displays Trash To Treasure (example #1)",
               "fullTitle": "Trash to Treasure Homepage Verify Navbar displays Trash To Treasure (example #1)",
               "timedOut": null,
-              "duration": 165,
+              "duration": 163,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -65,21 +65,21 @@
               "context": null,
               "code": "const state = window.testState;\nreturn cy\n  .then(() => state.onStartScenario(scenario, indexedSteps))\n  .then(() =>\n    resolveAndRunBeforeHooks.call(this, scenario.tags, state.feature.name)\n  )\n  .then(() =>\n    indexedSteps.forEach(step =>\n      stepTest.call(this, state, step, rowData)\n    )\n  )\n  .then(() =>\n    resolveAndRunAfterHooks.call(this, scenario.tags, state.feature.name)\n  )\n  .then(() => state.onFinishScenario(scenario));",
               "err": {},
-              "uuid": "b8b2aead-016a-4d04-8e14-b4351bd1fc74",
-              "parentUUID": "b4302683-7e15-48a6-9cc4-667f37f9fed7",
+              "uuid": "5bf28e51-bd8b-4c42-b09a-ce148f177702",
+              "parentUUID": "1e058828-439c-4774-8df2-a1f4e6374989",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "2479956e-4278-483b-bb23-de513e7f4e49",
-            "b8b2aead-016a-4d04-8e14-b4351bd1fc74"
+            "8a86ad04-768b-4e44-9dc5-27c3dc712d69",
+            "5bf28e51-bd8b-4c42-b09a-ce148f177702"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 952,
+          "duration": 931,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -95,7 +95,7 @@
       "_timeout": 2000
     },
     {
-      "uuid": "5f745f64-d3d1-4fa7-b438-4813eef04250",
+      "uuid": "f11abf51-7b61-415f-9cb3-eea83363934d",
       "title": "",
       "fullFile": "cypress/integration/cucumber-tests/Z_generate_cucumber_reports.feature",
       "file": "cypress/integration/cucumber-tests/Z_generate_cucumber_reports.feature",
@@ -104,7 +104,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "e95db8f4-356a-4f67-9d80-2c5217a2caad",
+          "uuid": "8cc3c2ad-cac5-4c12-b235-213c3d20503a",
           "title": "Generate Cucumber Reports",
           "fullFile": "",
           "file": "",
@@ -115,7 +115,7 @@
               "title": "Explore different products of Rapid7",
               "fullTitle": "Generate Cucumber Reports Explore different products of Rapid7",
               "timedOut": null,
-              "duration": 1452,
+              "duration": 1301,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -124,20 +124,20 @@
               "context": null,
               "code": "const state = window.testState;\nreturn cy\n  .then(() => state.onStartScenario(scenario, indexedSteps))\n  .then(() =>\n    resolveAndRunBeforeHooks.call(this, scenario.tags, state.feature.name)\n  )\n  .then(() =>\n    indexedSteps.forEach(step =>\n      stepTest.call(this, state, step, rowData)\n    )\n  )\n  .then(() =>\n    resolveAndRunAfterHooks.call(this, scenario.tags, state.feature.name)\n  )\n  .then(() => state.onFinishScenario(scenario));",
               "err": {},
-              "uuid": "3be4203f-00b9-4f15-af64-f84396ea4c84",
-              "parentUUID": "e95db8f4-356a-4f67-9d80-2c5217a2caad",
+              "uuid": "4527ca2a-2828-42f4-b3f9-5fc39f9c70c3",
+              "parentUUID": "8cc3c2ad-cac5-4c12-b235-213c3d20503a",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "3be4203f-00b9-4f15-af64-f84396ea4c84"
+            "4527ca2a-2828-42f4-b3f9-5fc39f9c70c3"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 1452,
+          "duration": 1301,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

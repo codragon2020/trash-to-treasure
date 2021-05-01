@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2021-05-01T02:44:19.904Z",
-    "end": "2021-05-01T02:44:21.395Z",
-    "duration": 1491,
+    "start": "2021-05-01T02:58:40.712Z",
+    "end": "2021-05-01T02:58:42.055Z",
+    "duration": 1343,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "5f745f64-d3d1-4fa7-b438-4813eef04250",
+      "uuid": "f11abf51-7b61-415f-9cb3-eea83363934d",
       "title": "",
       "fullFile": "cypress/integration/cucumber-tests/Z_generate_cucumber_reports.feature",
       "file": "cypress/integration/cucumber-tests/Z_generate_cucumber_reports.feature",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "e95db8f4-356a-4f67-9d80-2c5217a2caad",
+          "uuid": "8cc3c2ad-cac5-4c12-b235-213c3d20503a",
           "title": "Generate Cucumber Reports",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Explore different products of Rapid7",
               "fullTitle": "Generate Cucumber Reports Explore different products of Rapid7",
               "timedOut": null,
-              "duration": 1452,
+              "duration": 1301,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -47,20 +47,20 @@
               "context": null,
               "code": "const state = window.testState;\nreturn cy\n  .then(() => state.onStartScenario(scenario, indexedSteps))\n  .then(() =>\n    resolveAndRunBeforeHooks.call(this, scenario.tags, state.feature.name)\n  )\n  .then(() =>\n    indexedSteps.forEach(step =>\n      stepTest.call(this, state, step, rowData)\n    )\n  )\n  .then(() =>\n    resolveAndRunAfterHooks.call(this, scenario.tags, state.feature.name)\n  )\n  .then(() => state.onFinishScenario(scenario));",
               "err": {},
-              "uuid": "3be4203f-00b9-4f15-af64-f84396ea4c84",
-              "parentUUID": "e95db8f4-356a-4f67-9d80-2c5217a2caad",
+              "uuid": "4527ca2a-2828-42f4-b3f9-5fc39f9c70c3",
+              "parentUUID": "8cc3c2ad-cac5-4c12-b235-213c3d20503a",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "3be4203f-00b9-4f15-af64-f84396ea4c84"
+            "4527ca2a-2828-42f4-b3f9-5fc39f9c70c3"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 1452,
+          "duration": 1301,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
