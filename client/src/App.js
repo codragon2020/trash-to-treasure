@@ -17,16 +17,15 @@ const App = () => {
       url: "/user",
     }).then((res) => {
       setUser({...res.data, loggedIn:true})
-    })}, [])
+    })}, [Route])
   return (
     <Router>
       <Header />
       <main className='py-3'>
         <Container>
-          <Route path={['/', "/home"]} component={() => user.loggedIn ? <HomeScreen /> : <Authenticate setUser={setUser}/> } />
-          <Route path='/profile' component={Profile} exact />
-          {/* <Route path='/home' component={user.loggedIn ? HomeScreen : Authenticate } exact /> */}
-          <Route path='/product/:id' component={ProductScreen} />
+          <Route path={['/', "/home"]} component={() => user.loggedIn ? <HomeScreen /> : <Authenticate setUser={setUser}/> } exact />
+          <Route path={['/profile']} component={() => user.loggedIn ? <Profile /> : <Authenticate setUser={setUser}/> } exact />
+          <Route path={['/product/:id']} component={props => user.loggedIn ? <ProductScreen {...props}/> : <Authenticate setUser={setUser}/> } />
         </Container>
       </main>
       <Footer />
