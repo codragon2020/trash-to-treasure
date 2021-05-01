@@ -50,7 +50,7 @@ connection.on("connected", () => {
 });
 
 connection.on("error", (err) => {
-  console.log(`Mongoose connection error: ${error.message}`.red.bold);
+  console.log("Mongoose connection failed.".red.bold);
 });
 
 // Middleware
