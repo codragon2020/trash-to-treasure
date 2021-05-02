@@ -8,6 +8,7 @@ import Profile from './screens/Profile' // For future development
 import HomeScreen from './screens/HomeScreen'
 import ProductScreen from './screens/ProductScreen'
 import axios from "axios"
+import 'semantic-ui-css/semantic.min.css';
 
 const App = () => {
   const [user, setUser] = useState({loggedIn:false})
