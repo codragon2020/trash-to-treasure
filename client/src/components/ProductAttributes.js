@@ -8,11 +8,16 @@ function ProductAttributes({ description, _id }) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  async function handleDelete() {
-    const url = "http://localhost:3001/api/product";
-    const payload = { params: { _id } };
-    await axios.delete(url, payload);
-    Router.push("/");
+  async function handleDelete(product) {
+    // 
+    try {
+        console.log("handleDelete1 called")
+        await axios.delete(`/product/${product._id}`);
+        console.log("handleDelete called")
+        Router.push("/");
+    } catch (err) {
+        console.log(err)
+    }
   }
 
   return (
