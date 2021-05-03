@@ -14,7 +14,7 @@ function ProductAttributes({ product }) {
         await axios.delete(`/api/products/${product._id}`);
         history.push("/");
     } catch (err) {
-        console.log("fail!!!!!", err)
+        console.log("fail!", err)
     }
   }
 
@@ -24,7 +24,7 @@ function ProductAttributes({ product }) {
         variant="danger"
         onClick={handleShow}
       >
-        Hello
+        Delete Product
       </Button>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header>Confirm Delete</Modal.Header>
