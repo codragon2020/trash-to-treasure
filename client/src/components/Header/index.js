@@ -15,7 +15,10 @@ const Header = () => {
                 Cart
               </Nav.Link>
               <Nav.Link href="/login">
-                <i className="fas fa-user"></i>Sign In
+                <i className="fas fa-user"></i> Sign In
+              </Nav.Link>
+              <Nav.Link href="/create">
+                <i className="fas fa-clipboard"></i> New Listing
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
