@@ -91,7 +91,7 @@ const ProductScreen = ({ match }) => {
           </Card>
         </Col>
       </Row>
-      <ProductAttributes />
+      <ProductAttributes product={product} />
 
     </>
   );

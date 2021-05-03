@@ -1,22 +1,20 @@
 import React, { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import axios from "axios";
-import { BrowserRouter as Router } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
-function ProductAttributes({ description, _id }) {
+function ProductAttributes({ product }) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const history = useHistory();
 
   async function handleDelete(product) {
-    // 
     try {
-        console.log("handleDelete1 called")
-        await axios.delete(`/product/${product._id}`);
-        console.log("handleDelete called")
-        Router.push("/");
+        await axios.delete(`/api/products/${product._id}`);
+        history.push("/");
     } catch (err) {
-        console.log(err)
+        console.log("fail!!!!!", err)
     }
   }
 
@@ -35,7 +33,7 @@ function ProductAttributes({ description, _id }) {
         </Modal.Body>
         <Modal.Footer>
           <Button onClick={() => setShow(false)}>Cancel</Button>
-          <Button onClick={handleDelete}>Delete</Button>
+          <Button onClick={() => handleDelete(product)}>Delete</Button>
         </Modal.Footer>
       </Modal>
     </>
