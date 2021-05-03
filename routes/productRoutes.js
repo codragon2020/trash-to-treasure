@@ -41,10 +41,9 @@ router.get(
 // );
 
 router.delete(
-  "/",
+  "/:id",
   asyncHandler(async (req, res) => {
-    const products = await Product.findOneAndDelete({ _id });
-    console.log(Product);
+    const product = await Product.findOneAndDelete({ _id: req.params.id });
     res.status(204).json({});
   })
 );
