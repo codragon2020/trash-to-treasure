@@ -1,9 +1,9 @@
 import React, { useState, setState } from "react";
-import { Container, Navbar, Nav } from "react-bootstrap"
+import { Container, Navbar, Nav } from "react-bootstrap";
 
 const Header = (props) => {
   const [isHidden, setIsHidden] = useState(true);
-  
+
   return (
     <header>
       <Navbar bg="primary" expand="lg" collapseOnSelect>
@@ -14,7 +14,6 @@ const Header = (props) => {
             <Nav className="ml-auto">
               <Nav.Link href="/cart">
                 <i className="fas fa-shopping-cart"></i>
-                {/* ({cart.length}) */}
                 Cart
               </Nav.Link>
               <Nav.Link onClick={() => props.onLogout()}>
