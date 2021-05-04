@@ -22,8 +22,17 @@ const App = () => {
     });
   }, [Route]);
 
-  function handleLogout() {
-    setUser({ ...user, loggedIn: false });
+  // function handleLogout() {
+  //   setUser({ ...user, loggedIn: false });
+  // }
+
+  const handleLogout = () => {
+    axios({
+      method: "get",
+      url: "/logout",
+    }).then((res) => {
+      setUser({loggedIn:false})
+    })
   }
 
   return (
