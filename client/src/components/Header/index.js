@@ -19,7 +19,6 @@ const Header = (props) => {
               </Nav.Link>
               <Nav.Link onClick={() => props.onLogout()}>
                 <i className="fas fa-user"></i>
-                
                 {props.loggedIn ? "Log Out" : "Log In"}
               </Nav.Link>
               <Nav.Link href="/create">

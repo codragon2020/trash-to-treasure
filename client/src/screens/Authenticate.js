@@ -7,7 +7,6 @@ function Authenticate(props) {
   const [registerPassword, setRegisterPassword] = useState("");
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
-  const [isHidden, setIsHidden] = useState("")
   const [data, setData] = useState(null);
   const register = () => {
     axios({
