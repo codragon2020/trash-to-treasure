@@ -20,9 +20,14 @@ const App = () => {
       setUser({ ...res.data, loggedIn: true });
     });
   }, [Route]);
+
+  function handleLogout() {
+    setUser({ ...user, loggedIn: false });
+  }
+
   return (
     <Router>
-      <Header />
+      <Header loggedIn={user.loggedIn} onLogout={handleLogout}/>
       <main className="py-3">
         <Container>
           <Route

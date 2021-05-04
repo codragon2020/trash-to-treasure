@@ -1,6 +1,9 @@
-import React from "react";
-import { Container, Navbar, Nav } from "react-bootstrap";
-const Header = () => {
+import React, { useState, setState } from "react";
+import { Container, Navbar, Nav } from "react-bootstrap"
+
+const Header = (props) => {
+  const [isHidden, setIsHidden] = useState(true);
+  
   return (
     <header>
       <Navbar bg="primary" expand="lg" collapseOnSelect>
@@ -14,8 +17,10 @@ const Header = () => {
                 {/* ({cart.length}) */}
                 Cart
               </Nav.Link>
-              <Nav.Link href="/login">
-                <i className="fas fa-user"></i> Sign In
+              <Nav.Link onClick={() => props.onLogout()}>
+                <i className="fas fa-user"></i>
+                
+                {props.loggedIn ? "Log Out" : "Log In"}
               </Nav.Link>
               <Nav.Link href="/create">
                 <i className="fas fa-clipboard"></i> New Listing
