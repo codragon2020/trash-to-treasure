@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from "react";
 import {
   Form,
@@ -34,10 +35,25 @@ function CreateProduct() {
       setProduct(prevState => ({ ...prevState, [name]: value }));
     }
   }
+  
+  //cloudinary Setup
+  async function handleImageUpload() {
+    const data = new FormData();
+    data.append("file", product.media);
+    data.append("upload_preset", "team-crushing-it");
+    data.append("cloud_name", "binayaluitel");
+    const response = await axios.post("https://api.cloudinary.com/v1_1/binayaluitel/image/upload", data);
+    const mediaUrl = response.data.url;
+    return mediaUrl;
+  }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
-    console.log(product);
+    //cloudinary upload validation
+    const mediaUrl= await handleImageUpload();
+    console.log(mediaUrl);
+    console.log('binaya posted mediaUrl')
+    const url = 'api/product';
     setProduct(INITIAL_PRODUCT);
     setSuccess(true);
   }
