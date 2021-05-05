@@ -7,6 +7,7 @@ function Authenticate(props) {
   const [registerPassword, setRegisterPassword] = useState("");
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
+  const [loginState, setLoginState] = useState("login")
   const [data, setData] = useState(null);
   const register = () => {
     axios({
@@ -18,7 +19,12 @@ function Authenticate(props) {
       },
       withCredentials: true
       
-    }).then((res) => console.log(res));
+    }).then((res) => {
+      setRegisterUsername("")
+      setRegisterPassword("")
+      console.log(res)
+      setLoginState("login")
+    });
   };
 
   const login = () => {
@@ -39,7 +45,7 @@ function Authenticate(props) {
 
   return (
     <div className="App">
-      <div>
+      {loginState === "register" && <div>
         <h1>Register</h1>
         <input
           placeholder="username"
@@ -47,11 +53,12 @@ function Authenticate(props) {
         />
         <input
           placeholder="password"
+          type="password"
           onChange={(e) => setRegisterPassword(e.target.value)}
         />
         <button onClick={register}>Submit</button>
-      </div>
-      <div>
+      </div>}
+      {loginState === "login" &&  <div>
         <h1>Login</h1>
         <input
           placeholder="username"
@@ -59,10 +66,12 @@ function Authenticate(props) {
         />
         <input
           placeholder="password"
+          type="password"
           onChange={(e) => setLoginPassword(e.target.value)}
         />
         <button onClick={login}>Submit</button>
-      </div>
+      </div>}
+      <p onClick={() => setLoginState(loginState === "register" ? "login" : "register" )}>{loginState === "login" ? "Register" : "Login" }</p>
     </div>
   );
 }

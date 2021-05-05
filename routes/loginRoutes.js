@@ -39,6 +39,12 @@ router.post("/login", (req, res, next) => {
       }
     });
   });
+
+  router.get('/logout', function(req, res){
+    req.logout();
+    res.send("Logging Out User")
+  });
+
   router.get("/user", (req, res) => {
       if(req.user) {res.json(req.user)}
         else {

@@ -8,6 +8,7 @@ import Profile from "./screens/Profile"; // For future development
 import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
 import CreateProduct from "./screens/CreateProduct";
+import AddToCart from "./screens/AddToCart";
 import axios from "axios";
 
 const App = () => {
@@ -21,8 +22,17 @@ const App = () => {
     });
   }, [Route]);
 
-  function handleLogout() {
-    setUser({ ...user, loggedIn: false });
+  // function handleLogout() {
+  //   setUser({ ...user, loggedIn: false });
+  // }
+
+  const handleLogout = () => {
+    axios({
+      method: "get",
+      url: "/logout",
+    }).then((res) => {
+      setUser({loggedIn:false})
+    })
   }
 
   return (
@@ -63,6 +73,17 @@ const App = () => {
             component={props =>
               user.loggedIn ? (
                 <CreateProduct {...props} />
+              ) : (
+                <Authenticate setUser={setUser} />
+              )
+            }
+            exact
+          />
+          <Route
+            path={["/cart"]}
+            component={props =>
+              user.loggedIn ? (
+                <AddToCart {...props} />
               ) : (
                 <Authenticate setUser={setUser} />
               )
