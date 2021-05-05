@@ -34,14 +34,7 @@ function Authenticate(props) {
     }).then((res) => {
       console.log(res)
       props.setUser({...res.data.user, loggedIn:true})
-    });
-  };
-  const getUser = () => {
-    axios({
-      method: "get",
-      url: "/user",
-      withCredentials: true
-    }).then((res) => setData(res.data));
+    })
   };
 
   return (
@@ -69,11 +62,6 @@ function Authenticate(props) {
           onChange={(e) => setLoginPassword(e.target.value)}
         />
         <button onClick={login}>Submit</button>
-      </div>
-      <div>
-        <h1>Get User</h1>
-        <button onClick={getUser}>Submit</button>
-        {data ? <h1>Welcome Back {data.username}</h1> : null}
       </div>
     </div>
   );
