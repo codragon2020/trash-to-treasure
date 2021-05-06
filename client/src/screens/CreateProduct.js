@@ -1,14 +1,5 @@
 import React from "react";
-import {
-  Form,
-  Input,
-  TextArea,
-  Button,
-  Image,
-  Message,
-  Header,
-  Icon
-} from "semantic-ui-react";
+import { Form, Image, Jumbotron, Button } from "react-bootstrap";
 
 const INITIAL_PRODUCT = {
   name: "",
@@ -23,7 +14,7 @@ const INITIAL_PRODUCT = {
 function CreateProduct() {
   const [product, setProduct] = React.useState(INITIAL_PRODUCT);
   const [mediaPreview, setMediaPreview] = React.useState("");
-  const [success, setSuccess] = React.useState(false);
+  // const [success, setSuccess] = React.useState(false);
 
   function handleChange(event) {
     const { name, value, files } = event.target;
@@ -39,96 +30,94 @@ function CreateProduct() {
     event.preventDefault();
     console.log(product);
     setProduct(INITIAL_PRODUCT);
-    setSuccess(true);
+    setMediaPreview("");
+    //   setSuccess(true);
   }
-
   return (
     <>
-      <Header as="h2" block>
-        <Icon name="add" color="orange" />
-        Create New Product
-      </Header>
-      <Form success={success} onSubmit={handleSubmit}>
-        <Message
-          success
-          icon="check"
-          header="Success!"
-          content="Your product has been posted"
-        />
-        <Form.Group widths="equal">
-          <Form.Field
-            control={Input}
+      <Form onSubmit={handleSubmit}>
+        <Jumbotron>
+          <h1>Create New Listing</h1>
+        </Jumbotron>
+
+        <Form.Group controlID="name">
+          <Form.Label>Product Name</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Product Name"
             name="name"
-            label="Name"
-            placeholder="Name"
             value={product.name}
             onChange={handleChange}
           />
-          <Form.Field
-            control={Input}
-            name="price"
-            label="Price"
-            placeholder="Price"
-            min="0.00"
-            step="1"
+        </Form.Group>
+        <Form.Group controlID="price">
+          <Form.Label>Product Price</Form.Label>
+          <Form.Control
             type="number"
+            placeholder="Product Price"
+            name="price"
             value={product.price}
             onChange={handleChange}
           />
-          <Form.Field
-            control={Input}
+        </Form.Group>
+        <Form.Group controlId="media">
+          <Form.File
+            id="media"
+            label="Add Your Image"
             name="media"
-            type="file"
-            label="Media"
             accept="image/*"
-            content="Select Image"
             onChange={handleChange}
           />
         </Form.Group>
-        <Image src={mediaPreview} rounded centered size="small" />
-        <Form.Field
-          control={Input}
-          name="contactName"
-          label="ContactName"
-          placeholder="Contact Name"
-          value={product.contactName}
-          onChange={handleChange}
-        />
-        <Form.Field
-          control={Input}
-          name="contactNumber"
-          label="ContactNumber"
-          placeholder="Contact Number"
-          value={product.contactNumber}
-          onChange={handleChange}
-        />
-        <Form.Field
-          control={Input}
-          name="contactEmail"
-          label="ContactEmal"
-          placeholder="Contact Email"
-          value={product.contactEmail}
-          onChange={handleChange}
-        />
-        <Form.Field
-          control={TextArea}
-          name="description"
-          label="Desciption"
-          placeholder="Desciption"
-          value={product.description}
-          onChange={handleChange}
-        />
 
-        <Form.Field
-          control={Button}
-          color="blue"
-          icon="pencil alternate"
-          content="Submit"
-          type="submit"
-        />
+        <Image src={mediaPreview} rounded centered size="small" />
+
+        <Form.Group controlID="contactName">
+          <Form.Label>Contact Name</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Contact Name"
+            name="contactName"
+            value={product.contactName}
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <Form.Group controlID="contactNumber">
+          <Form.Label>Contact Number</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Contact Number"
+            name="contactNumber"
+            value={product.contactNumber}
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <Form.Group controlID="contactEmail">
+          <Form.Label>Contact Email</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Contact Email"
+            name="contactEmail"
+            value={product.contactEmail}
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <Form.Group controlID="description">
+          <Form.Label>Information And Description</Form.Label>
+          <Form.Control
+            as="textarea"
+            rows={5}
+            placeholder="Description"
+            name="description"
+            value={product.description}
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <Button variant="primary" type="submit">
+          Post Listing
+        </Button>
       </Form>
     </>
   );
 }
-
 export default CreateProduct;

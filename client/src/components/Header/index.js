@@ -1,7 +1,7 @@
 import React, { useState, setState } from "react";
 import { Container, Navbar, Nav } from "react-bootstrap";
 
-const Header = (props) => {
+const Header = props => {
   const [isHidden, setIsHidden] = useState(true);
 
   return (
