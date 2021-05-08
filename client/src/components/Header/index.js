@@ -1,5 +1,7 @@
 import React, { useState, setState } from "react";
+import { Route } from "react-router-dom";
 import { Container, Navbar, Nav } from "react-bootstrap";
+import SearchBox from "../SearchBox";
 
 const Header = (props) => {
   const [isHidden, setIsHidden] = useState(true);
@@ -11,6 +13,13 @@ const Header = (props) => {
           <Navbar.Brand href="/">Trash to Treasure</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
+            <Route
+              render={
+                props.loggedIn
+                  ? ({ history }) => <SearchBox history={history} />
+                  : ""
+              }
+            />
             <Nav className="ml-auto">
               <Nav.Link href="/cart">
                 <i className="fas fa-shopping-cart"></i>
