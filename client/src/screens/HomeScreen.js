@@ -7,13 +7,17 @@ import axios from 'axios'
 const HomeScreen = () => {
   
   const [products, setProducts] = useState([])
-  
+
   const { keyword } = useParams()
   console.log(keyword)
+  
   useEffect(() => {
     const fetchProducts = async () => {
-      const { data } = await axios.get(`/api/products?keyword=${keyword}`)
-
+      const { data } = await (keyword === undefined
+        ? axios.get("/api/products")
+        : axios.get(`/api/products?keyword=${keyword}`));
+      
+      console.log(data)
       setProducts(data)
     }
 
