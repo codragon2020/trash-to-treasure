@@ -8,52 +8,79 @@ import {
   Image,
   Message,
   Header,
-  Icon
+  Icon,
 } from "semantic-ui-react";
 
 const INITIAL_PRODUCT = {
   name: "",
   price: "",
-  media: "",
+  image: "",
   description: "",
-  contactName: "",
-  contactNumber: "",
-  contactEmail: ""
+  contact_name: "",
+  contact_phone: "",
+  contact_email: "",
 };
 
 function CreateProduct() {
-  const [product, setProduct] = React.useState(INITIAL_PRODUCT);
+  const [products, setProduct] = React.useState(INITIAL_PRODUCT);
   const [mediaPreview, setMediaPreview] = React.useState("");
   const [success, setSuccess] = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
 
   function handleChange(event) {
     const { name, value, files } = event.target;
-    if (name === "media") {
-      setProduct(prevState => ({ ...prevState, media: files[0] }));
+    if (name === "image") {
+      setProduct((prevState) => ({ ...prevState, image: files[0] }));
       setMediaPreview(window.URL.createObjectURL(files[0]));
     } else {
-      setProduct(prevState => ({ ...prevState, [name]: value }));
+      setProduct((prevState) => ({ ...prevState, [name]: value }));
     }
   }
-  
+
   //cloudinary Setup
   async function handleImageUpload() {
     const data = new FormData();
-    data.append("file", product.media);
+    data.append("file", products.image);
     data.append("upload_preset", "team-crushing-it");
     data.append("cloud_name", "binayaluitel");
-    const response = await axios.post("https://api.cloudinary.com/v1_1/binayaluitel/image/upload", data);
-    const mediaUrl = response.data.url;
-    return mediaUrl;
+    const response = await axios.post(
+      "https://api.cloudinary.com/v1_1/binayaluitel/image/upload",
+      data
+    );
+    const image = response.data.url;
+    return image;
   }
 
   async function handleSubmit(event) {
     event.preventDefault();
+    setLoading(true);
     //cloudinary upload validation
-    const mediaUrl= await handleImageUpload();
-    console.log(mediaUrl);
-    console.log('binaya posted mediaUrl')
-    const url = 'api/product';
+    const image = await handleImageUpload();
+    console.log(image);
+    console.log("binaya posted image");
+    const {
+      name,
+      price,
+      description,
+      contact_name,
+      contact_phone,
+      contact_email,
+    } = products;
+
+    const payload = {
+      name,
+      price,
+      description,
+      contact_name,
+      contact_phone,
+      contact_email,
+      image
+    };
+    console.log(payload);
+
+
+    const response = await axios.post("/api/products", payload);
+    setLoading(false);
     setProduct(INITIAL_PRODUCT);
     setSuccess(true);
   }
@@ -64,7 +91,7 @@ function CreateProduct() {
         <Icon name="add" color="orange" />
         Create New Product
       </Header>
-      <Form success={success} onSubmit={handleSubmit}>
+      <Form loading={loading} success={success} onSubmit={handleSubmit}>
         <Message
           success
           icon="check"
@@ -77,7 +104,7 @@ function CreateProduct() {
             name="name"
             label="Name"
             placeholder="Name"
-            value={product.name}
+            value={products.name}
             onChange={handleChange}
           />
           <Form.Field
@@ -88,12 +115,12 @@ function CreateProduct() {
             min="0.00"
             step="1"
             type="number"
-            value={product.price}
+            value={products.price}
             onChange={handleChange}
           />
           <Form.Field
             control={Input}
-            name="media"
+            name="image"
             type="file"
             label="Media"
             accept="image/*"
@@ -104,26 +131,26 @@ function CreateProduct() {
         <Image src={mediaPreview} rounded centered size="small" />
         <Form.Field
           control={Input}
-          name="contactName"
-          label="ContactName"
+          name="contact_name"
+          label="Contact_name"
           placeholder="Contact Name"
-          value={product.contactName}
+          value={products.contact_name}
           onChange={handleChange}
         />
         <Form.Field
           control={Input}
-          name="contactNumber"
+          name="contact_phone"
           label="ContactNumber"
           placeholder="Contact Number"
-          value={product.contactNumber}
+          value={products.contact_phone}
           onChange={handleChange}
         />
         <Form.Field
           control={Input}
-          name="contactEmail"
+          name="contact_email"
           label="ContactEmal"
           placeholder="Contact Email"
-          value={product.contactEmail}
+          value={products.contact_email}
           onChange={handleChange}
         />
         <Form.Field
@@ -131,7 +158,7 @@ function CreateProduct() {
           name="description"
           label="Desciption"
           placeholder="Desciption"
-          value={product.description}
+          value={products.description}
           onChange={handleChange}
         />
 

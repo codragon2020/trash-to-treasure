@@ -30,16 +30,46 @@ router.get(
   })
 );
 
-// Post single product - POST /api/products/:id
-// router.post(
-//   "/",
-//   asyncHandler(async (req, res) => {
-//     const products = await Product.find({});
-//     console.log(Product);
-//     res.json(products);
-//   })
-// );
+// Post single product - POST /api/products
+router.post(
+  "/",
+  asyncHandler(async (req, res) => {
+    const {
+      name,
+      price,
+      description,
+      contact_name,
+      contact_phone,
+      contact_email,
+      image,
+    } = req.body;
 
+    if (
+      !name ||
+      !price ||
+      !description ||
+      !contact_name ||
+      !contact_phone ||
+      !contact_email ||
+      !image
+    ) {
+      return res.status(422).send("Product missing one or morefields");
+    }
+    const product = await new Product({
+      name,
+      price,
+      description,
+      contact_name,
+      contact_phone,
+      contact_email,
+      image,
+    }).save();
+    console.log("hello binaya is in product");
+    res.status(201).json(product);
+  })
+);
+
+//delete check
 router.delete(
   "/:id",
   asyncHandler(async (req, res) => {
@@ -47,5 +77,16 @@ router.delete(
     res.status(204).json({});
   })
 );
+
+// //post
+// router.post(
+//   "/",
+//   asyncHandler(async (req, res) => {
+//     const product = await Product.findOneAndUpdate({ })
+
+//     // const product = await Product.findOneAndDelete({ _id: req.params.id });
+//     res.status(204).json({});
+//   })
+// );
 
 module.exports = router;
