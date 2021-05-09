@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Redirect } from "react-router-dom";
 import axios from "axios";
 import Form from "react-bootstrap/Form";
+import GoogleButton from "react-google-button";
 
 function Authenticate(props) {
   const [registerUsername, setRegisterUsername] = useState("");
@@ -42,6 +42,15 @@ function Authenticate(props) {
     });
   };
 
+  const googleAuth = () => {
+    axios({
+      method: "get",
+      url: "/google",
+    }).then((res) => {
+      console.log(res);
+    });
+  };
+
   return (
     <Form.Group size="lg">
       <div className="App container">
@@ -49,7 +58,7 @@ function Authenticate(props) {
           <div>
             <h1>Register</h1>
             <Form.Row>
-            <div className="form-group col">
+              <div className="form-group col">
                 <label>First Name</label>
                 <input
                   className="form-control"
@@ -67,23 +76,23 @@ function Authenticate(props) {
               </div>
             </Form.Row>
             <Form.Row>
-            <div className="form-group col">
-              <label>Username</label>
-              <input
-                className="form-control"
-                placeholder="Enter username"
-                onChange={(e) => setRegisterUsername(e.target.value)}
-              />
-            </div>
-            <div className="form-group col">
-              <label>Password</label>
-              <input
-                className="form-control"
-                placeholder="Enter password"
-                type="password"
-                onChange={(e) => setRegisterPassword(e.target.value)}
-              />
-            </div>
+              <div className="form-group col">
+                <label>Username</label>
+                <input
+                  className="form-control"
+                  placeholder="Enter username"
+                  onChange={(e) => setRegisterUsername(e.target.value)}
+                />
+              </div>
+              <div className="form-group col">
+                <label>Password</label>
+                <input
+                  className="form-control"
+                  placeholder="Enter password"
+                  type="password"
+                  onChange={(e) => setRegisterPassword(e.target.value)}
+                />
+              </div>
             </Form.Row>
             <button
               onClick={register}
@@ -98,24 +107,25 @@ function Authenticate(props) {
           <div>
             <h1>Login</h1>
             <Form.Row>
-            <div className="form-group col">
-              <label>Username</label>
-              <input
-                placeholder="Enter username"
-                className="form-control"
-                onChange={(e) => setLoginUsername(e.target.value)}
-              />
-            </div>
-            <div className="form-group col">
-              <label>Password</label>
-              <input
-                placeholder="Enter password"
-                className="form-control"
-                type="password"
-                onChange={(e) => setLoginPassword(e.target.value)}
-              />
-            </div>
+              <div className="form-group col">
+                <label>Username</label>
+                <input
+                  placeholder="Enter username"
+                  className="form-control"
+                  onChange={(e) => setLoginUsername(e.target.value)}
+                />
+              </div>
+              <div className="form-group col">
+                <label>Password</label>
+                <input
+                  placeholder="Enter password"
+                  className="form-control"
+                  type="password"
+                  onChange={(e) => setLoginPassword(e.target.value)}
+                />
+              </div>
             </Form.Row>
+
             <button
               onClick={login}
               className="btn btn-dark btn-lg btn-block"
@@ -134,6 +144,9 @@ function Authenticate(props) {
             ? "Need to Register?"
             : "Already Signed Up? Login"}
         </p>
+        <GoogleButton
+          onClick={googleAuth}
+        />
       </div>
     </Form.Group>
   );
