@@ -22,15 +22,16 @@ const Header = (props) => {
             />
             <Nav className="ml-auto">
               <Nav.Link href="/cart">
-                <i className="fas fa-shopping-cart"></i>
-                Cart
+                {props.loggedIn ? <i className="fas fa-shopping-cart"></i> : ""}
+                {props.loggedIn ? "Cart" : ""}
+              </Nav.Link>
+              <Nav.Link href="/create">
+                {props.loggedIn ? <i className="fas fa-clipboard"></i> : ""}
+                {props.loggedIn ? "New Listing" : ""}
               </Nav.Link>
               <Nav.Link onClick={() => props.onLogout()}>
                 <i className="fas fa-user"></i>
                 {props.loggedIn ? "Log Out" : "Log In"}
-              </Nav.Link>
-              <Nav.Link href="/create">
-                <i className="fas fa-clipboard"></i> New Listing
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
