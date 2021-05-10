@@ -1,15 +1,7 @@
 import axios from "axios";
 import React from "react";
-import {
-  Form,
-  Input,
-  TextArea,
-  Button,
-  Image,
-  Message,
-  Header,
-  Icon,
-} from "semantic-ui-react";
+import { Form, Image, Button, Col } from "react-bootstrap";
+import {} from "./style.css";
 
 const INITIAL_PRODUCT = {
   name: "",
@@ -18,22 +10,22 @@ const INITIAL_PRODUCT = {
   description: "",
   contact_name: "",
   contact_phone: "",
-  contact_email: "",
+  contact_email: ""
 };
 
 function CreateProduct() {
   const [products, setProduct] = React.useState(INITIAL_PRODUCT);
   const [mediaPreview, setMediaPreview] = React.useState("");
-  const [success, setSuccess] = React.useState(false);
+  // const [success, setSuccess] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
 
   function handleChange(event) {
     const { name, value, files } = event.target;
     if (name === "image") {
-      setProduct((prevState) => ({ ...prevState, image: files[0] }));
+      setProduct(prevState => ({ ...prevState, image: files[0] }));
       setMediaPreview(window.URL.createObjectURL(files[0]));
     } else {
-      setProduct((prevState) => ({ ...prevState, [name]: value }));
+      setProduct(prevState => ({ ...prevState, [name]: value }));
     }
   }
 
@@ -51,6 +43,14 @@ function CreateProduct() {
     return image;
   }
 
+  // function handleSubmit(event) {
+  //   event.preventDefault();
+  //   console.log(product);
+  //   setProduct(INITIAL_PRODUCT);
+  //   setMediaPreview("");
+  //   //   setSuccess(true);
+  // }
+
   async function handleSubmit(event) {
     event.preventDefault();
     setLoading(true);
@@ -64,7 +64,7 @@ function CreateProduct() {
       description,
       contact_name,
       contact_phone,
-      contact_email,
+      contact_email
     } = products;
 
     const payload = {
@@ -78,100 +78,132 @@ function CreateProduct() {
     };
     console.log(payload);
 
-
     const response = await axios.post("/api/products", payload);
     setLoading(false);
     setProduct(INITIAL_PRODUCT);
-    setSuccess(true);
+    // setSuccess(true);
   }
 
   return (
     <>
-      <Header as="h2" block>
-        <Icon name="add" color="orange" />
-        Create New Product
-      </Header>
-      <Form loading={loading} success={success} onSubmit={handleSubmit}>
-        <Message
-          success
-          icon="check"
-          header="Success!"
-          content="Your product has been posted"
-        />
-        <Form.Group widths="equal">
-          <Form.Field
-            control={Input}
-            name="name"
-            label="Name"
-            placeholder="Name"
-            value={products.name}
-            onChange={handleChange}
-          />
-          <Form.Field
-            control={Input}
-            name="price"
-            label="Price"
-            placeholder="Price"
-            min="0.00"
-            step="1"
-            type="number"
-            value={products.price}
-            onChange={handleChange}
-          />
-          <Form.Field
-            control={Input}
-            name="image"
-            type="file"
-            label="Media"
-            accept="image/*"
-            content="Select Image"
-            onChange={handleChange}
-          />
-        </Form.Group>
-        <Image src={mediaPreview} rounded centered size="small" />
-        <Form.Field
-          control={Input}
-          name="contact_name"
-          label="Contact_name"
-          placeholder="Contact Name"
-          value={products.contact_name}
-          onChange={handleChange}
-        />
-        <Form.Field
-          control={Input}
-          name="contact_phone"
-          label="ContactNumber"
-          placeholder="Contact Number"
-          value={products.contact_phone}
-          onChange={handleChange}
-        />
-        <Form.Field
-          control={Input}
-          name="contact_email"
-          label="ContactEmal"
-          placeholder="Contact Email"
-          value={products.contact_email}
-          onChange={handleChange}
-        />
-        <Form.Field
-          control={TextArea}
-          name="description"
-          label="Desciption"
-          placeholder="Desciption"
-          value={products.description}
-          onChange={handleChange}
-        />
+      <h1>Create New Listing</h1>
+      <Form onSubmit={handleSubmit}>
+        <Form.Row>
+          <Col>
+            <Form.Group controlId="name">
+              <Form.Label>Product Name</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Product Name"
+                name="name"
+                value={products.name}
+                onChange={handleChange}
+              />
+            </Form.Group>
+          </Col>
+        </Form.Row>
 
-        <Form.Field
-          control={Button}
-          color="blue"
-          icon="pencil alternate"
-          content="Submit"
-          type="submit"
-        />
+        <Form.Row>
+          <Col>
+            <Form.Group controlId="price">
+              <Form.Label>Product Price</Form.Label>
+              <Form.Control
+                type="number"
+                placeholder="Product Price"
+                name="price"
+                value={products.price}
+                onChange={handleChange}
+              />
+            </Form.Group>
+          </Col>
+        </Form.Row>
+
+        <Form.Row>
+          <Col>
+            <Form.Group controlId="image">
+              <Form.File
+                id="image"
+                label="Add Your Image"
+                name="image"
+                accept="image/*"
+                onChange={handleChange}
+              />
+            </Form.Group>
+          </Col>
+        </Form.Row>
+
+        <Form.Row>
+          <Col>
+            <Image src={mediaPreview} rounded size="small" />
+          </Col>
+        </Form.Row>
+
+        <Form.Row>
+          <Col>
+            <Form.Group controlId="contact_name">
+              <Form.Label>Contact Name</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Contact Name"
+                name="contact_name"
+                value={products.contact_name}
+                onChange={handleChange}
+              />
+            </Form.Group>
+          </Col>
+        </Form.Row>
+
+        <Form.Row>
+          <Col>
+            <Form.Group controlId="contact_phone">
+              <Form.Label>Contact Number</Form.Label>
+              <Form.Control
+                // type="text"
+                placeholder="Contact Number"
+                name="contact_phone"
+                value={products.contact_phone}
+                onChange={handleChange}
+              />
+            </Form.Group>
+          </Col>
+        </Form.Row>
+
+        <Form.Row>
+          <Col>
+            <Form.Group controlId="contact_email">
+              <Form.Label>Contact Email</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Contact Email"
+                name="contact_email"
+                value={products.contact_email}
+                onChange={handleChange}
+              />
+            </Form.Group>
+          </Col>
+        </Form.Row>
+
+        <Form.Row>
+          <Col>
+            <Form.Group controlId="description">
+              <Form.Label>Information And Description</Form.Label>
+              <Form.Control
+                as="textarea"
+                rows={5}
+                placeholder="Description"
+                name="description"
+                value={products.description}
+                onChange={handleChange}
+              />
+            </Form.Group>
+          </Col>
+        </Form.Row>
+
+        <Button variant="primary" type="submit">
+          Post Listing
+        </Button>
       </Form>
     </>
   );
 }
-
 export default CreateProduct;
