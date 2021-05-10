@@ -16,8 +16,8 @@ const App = () => {
   useEffect(() => {
     axios({
       method: "get",
-      url: "/user"
-    }).then(res => {
+      url: "/user",
+    }).then((res) => {
       setUser({ ...res.data, loggedIn: true });
     });
   }, [Route]);
@@ -31,13 +31,13 @@ const App = () => {
       method: "get",
       url: "/logout",
     }).then((res) => {
-      setUser({loggedIn:false})
-    })
-  }
+      setUser({ loggedIn: false });
+    });
+  };  
 
   return (
     <Router>
-      <Header loggedIn={user.loggedIn} onLogout={handleLogout}/>
+      <Header loggedIn={user.loggedIn} onLogout={handleLogout} />
       <main className="py-3">
         <Container>
           <Route
@@ -60,7 +60,7 @@ const App = () => {
           />
           <Route
             path={["/product/:id"]}
-            component={props =>
+            component={(props) =>
               user.loggedIn ? (
                 <ProductScreen {...props} />
               ) : (
@@ -70,7 +70,7 @@ const App = () => {
           />
           <Route
             path={["/create"]}
-            component={props =>
+            component={(props) =>
               user.loggedIn ? (
                 <CreateProduct {...props} />
               ) : (
@@ -81,13 +81,18 @@ const App = () => {
           />
           <Route
             path={["/cart"]}
-            component={props =>
+            component={(props) =>
               user.loggedIn ? (
                 <AddToCart {...props} />
               ) : (
                 <Authenticate setUser={setUser} />
               )
             }
+            exact
+          />
+          <Route
+            path="/search/:keyword"
+            component={HomeScreen}
             exact
           />
         </Container>

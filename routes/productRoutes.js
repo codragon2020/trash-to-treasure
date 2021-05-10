@@ -9,8 +9,19 @@ const Product = require("../models/productModel.js");
 router.get(
   "/",
   asyncHandler(async (req, res) => {
-    const products = await Product.find({});
+    const keyword = req.query.keyword
+    ? {
+        name: {
+          $regex: req.query.keyword,
+          $options: 'i',
+        },
+      }
+    : {}
+      
+    const products = await Product.find({ ...keyword })
+   
     console.log(Product);
+    console.log(keyword);
     res.json(products);
   })
 );
