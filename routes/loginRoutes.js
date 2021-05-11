@@ -55,9 +55,14 @@ router.get("/user", (req, res) => {
 });
 
 // Google routes
-router.get('/google', (req, res) => {
-  //handle with passport
-  res.send('logging in with google');
-})
+// router.get('/google', (req, res) => {
+//   //handle with passport
+//   res.send('logging in with google');
+// })
+
+router.get(
+  "/google",
+  passport.authenticate("google")
+);
 
 module.exports = router;

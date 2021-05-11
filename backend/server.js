@@ -6,6 +6,7 @@ const productRoutes = require("../routes/productRoutes.js");
 const profileRoutes = require("../routes/profileRoutes.js");
 const cors = require("cors");
 const passport = require("passport");
+const passportSetup = require('./passportConfig')
 const passortLocal = require("passport-local").Strategy;
 const cookieParser = require("cookie-parser");
 const bcrypt = require("bcryptjs");
@@ -56,10 +57,17 @@ connection.on("error", (err) => {
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+// app.use(function(req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
+//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//   next();
+// });
+
 app.use(
   cors({
-    origin: "http://localhost:3000", // <-- location of the react app we're connecting to
-    credentials: true,
+    origin: "*", // <-- location of the react app we're connecting to
+    methods: "GET, POST, PATCH, DELETE, PUT",
+    allowedHeaders: "Content-Type, Authorization"
   })
 );
 
