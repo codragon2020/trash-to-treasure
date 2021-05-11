@@ -10,16 +10,16 @@ router.get(
   "/",
   asyncHandler(async (req, res) => {
     const keyword = req.query.keyword
-    ? {
-        name: {
-          $regex: req.query.keyword,
-          $options: 'i',
-        },
-      }
-    : {}
-      
-    const products = await Product.find({ ...keyword })
-   
+      ? {
+          name: {
+            $regex: req.query.keyword,
+            $options: "i"
+          }
+        }
+      : {};
+
+    const products = await Product.find({ ...keyword });
+
     console.log(Product);
     console.log(keyword);
     res.json(products);
@@ -53,6 +53,7 @@ router.post(
       contact_phone,
       contact_email,
       image,
+      countInStock
     } = req.body;
 
     if (
@@ -62,7 +63,8 @@ router.post(
       !contact_name ||
       !contact_phone ||
       !contact_email ||
-      !image
+      !image ||
+      !countInStock
     ) {
       return res.status(422).send("Product missing one or morefields");
     }
@@ -74,6 +76,7 @@ router.post(
       contact_phone,
       contact_email,
       image,
+      countInStock
     }).save();
     console.log("hello binaya is in product");
     res.status(201).json(product);
