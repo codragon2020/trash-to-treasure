@@ -28,7 +28,7 @@ function CreateProduct() {
       setProduct(prevState => ({ ...prevState, [name]: value }));
     }
   }
-
+  const countInStock = 1;
   //cloudinary Setup
   async function handleImageUpload() {
     const data = new FormData();
@@ -74,13 +74,15 @@ function CreateProduct() {
       contact_name,
       contact_phone,
       contact_email,
-      image
+      image,
+      countInStock
     };
     console.log(payload);
 
     const response = await axios.post("/api/products", payload);
     setLoading(false);
     setProduct(INITIAL_PRODUCT);
+    setMediaPreview("");
     // setSuccess(true);
   }
 

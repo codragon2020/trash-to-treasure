@@ -21,10 +21,10 @@ const Header = props => {
               }
             />
             <Nav className="ml-auto">
-              <Nav.Link href="/cart">
+              {/* <Nav.Link href="/cart">
                 {props.loggedIn ? <i className="fas fa-shopping-cart"></i> : ""}
                 {props.loggedIn ? "Cart" : ""}
-              </Nav.Link>
+              </Nav.Link> */}
               <Nav.Link href="/create">
                 {props.loggedIn ? <i className="fas fa-clipboard"></i> : ""}
                 {props.loggedIn ? "New Listing" : ""}
