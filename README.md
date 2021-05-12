@@ -27,9 +27,10 @@
   ## Description:
 
 
-Our core mission is to provide a platform to buyers and sellers which allows them buy and sell the products which might otherwise end up in trash.. 
-What trash to you could be treasure for someone. Give another life to your stuff !!!!
-Our application is live and ready for you to test out, so go ahead and user[TRASH_2_TREASURE](https://morning-meadow-38504.herokuapp.com/)
+Our core mission is to provide a platform to buyers and sellers which allows them buy and sell the products which might otherwise end up in trash. What is trash to you could be treasure for someone else. Give new life to your old stuff!!!!
+
+Our application is live and ready for you to test out, so go ahead and use it! 
+[TRASH_2_TREASURE](https://morning-meadow-38504.herokuapp.com/)
 
 
   
@@ -93,17 +94,18 @@ Our application is live and ready for you to test out, so go ahead and user[TRAS
   For this project we used:
 
 
-   * MongoDB
+   * MongoDB / Mongoose
    * Express
    * React
    * NodeJS
+   * Passport
    * CSS
    * JavaScript
    * Heroku
-   * Sequelize
    * Chalk
    * Morgan
    * Cypress
+   * Express Async Handler
 
   
   
@@ -113,8 +115,8 @@ Our application is live and ready for you to test out, so go ahead and user[TRAS
   
   This project was created by:
 
-  * Daniel Edwards,
-  * Jason McGinthy,
+  * Daniel Edwards
+  * Jason McGinthy
   * Binaya Luitel
 
 
