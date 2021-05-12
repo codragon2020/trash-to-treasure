@@ -55,21 +55,31 @@ connection.on("error", (err) => {
 });
 
 // Middleware
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+// app.use(express.json());
+// app.use(express.urlencoded({ extended: true }));
 // app.use(function(req, res, next) {
 //   res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
 //   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 //   next();
 // });
 
-app.use(
-  cors({
-    origin: "*", // <-- location of the react app we're connecting to
-    methods: "GET, POST, PATCH, DELETE, PUT",
-    allowedHeaders: "Content-Type, Authorization"
-  })
-);
+// app.use(function (req, res, next) {
+//   // Website you wish to allow to connect
+//   res.setHeader('Access-Control-Allow-Origin', '*')
+//   // Request methods you wish to allow
+//   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+//   // Request headers you wish to allow ,
+//   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Access-ControlAllow-Headers');
+//   // Pass to next layer of middleware
+//   next();
+// });
+// app.use(
+//   cors({
+//     origin: "*", // <-- location of the react app we're connecting to
+//     methods: "GET, POST, PATCH, DELETE, PUT",
+//     allowedHeaders: "Content-Type, Authorization"
+//   })
+// );
 
 app.use(
   session({
@@ -78,11 +88,12 @@ app.use(
     saveUninitialized: true,
   })
 );
+require("./passportConfig")(passport);
 
 app.use(cookieParser("secretcode"));
 app.use(passport.initialize());
 app.use(passport.session());
-require("./passportConfig")(passport);
+// require("./passportConfig")(passport);
 
 // ----------------End of Middleware---------------------
 

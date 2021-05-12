@@ -45,9 +45,11 @@ function Authenticate(props) {
   const googleAuth = () => {
     axios({
       method: "get",
-      url: "/google",
+      url: "http://localhost:3000/google",
     }).then((res) => {
-      console.log(res);
+      console.log(res.data);
+    }).catch((err) => {
+      console.log(err)
     });
   };
 

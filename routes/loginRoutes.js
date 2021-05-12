@@ -9,6 +9,11 @@ const session = require("express-session");
 const bodyParser = require("body-parser");
 const User = require("../models/userModel");
 
+var express = require("express");
+var app = express();
+
+app.use(cors());
+
 // Routes
 router.post("/login", (req, res, next) => {
   passport.authenticate("local", (err, user, info) => {
@@ -62,7 +67,27 @@ router.get("/user", (req, res) => {
 
 router.get(
   "/google",
-  passport.authenticate("google")
+  passport.authenticate("google", {
+    scope: [
+      // "https://mail.google.com/",
+      // "https://www.google.com/m8/feeds/",
+      // "email",
+      "profile",
+    ],
+  })
 );
+
+router.get(
+  "/google/redirect",
+  passport.authenticate(
+    "google",
+    {
+      failureRedirect: "/"
+    }),
+    (req, res) => {
+      console.log("redirecting");
+    }
+)
+
 
 module.exports = router;
