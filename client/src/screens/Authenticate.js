@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
+import GoogleLogin from "react-google-login"
 import { Form, Button } from "react-bootstrap";
 
 function Authenticate(props) {
@@ -41,6 +42,21 @@ function Authenticate(props) {
       props.setUser({ ...res.data.user, loggedIn: true });
     });
   };
+
+  const responseSuccessGoogle = (response) => {
+    console.log(response)
+    axios({
+      method: "POST",
+      url: "http://localhost:3000/google",
+      data: {tokenId: response.tokenId}
+    }).then(response => {
+      console.log(response);
+    })
+  }
+
+  const responseErrorGoogle = (response) => {
+
+  }
 
   return (
     <Form.Group size="lg">
@@ -140,6 +156,13 @@ function Authenticate(props) {
             ? "Need to Register?"
             : "Already Signed Up? Login"}
         </p>
+        <GoogleLogin
+          clientId="1084092224337-7lgj0bui87cdc7ftptrpu00skccbq2pm.apps.googleusercontent.com"
+          buttonText="Login with Google"
+          onSuccess={responseSuccessGoogle}
+          onFailure={responseErrorGoogle}
+          cookiePolicy={'single_host_origin'}
+          />
       </div>
     </Form.Group>
   );
