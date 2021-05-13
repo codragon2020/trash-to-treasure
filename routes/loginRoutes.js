@@ -9,6 +9,16 @@ const bodyParser = require("body-parser");
 const User = require("../models/userModel");
 
 // Routes
+
+router.get('/google', passport.authenticate('google', { scope: ['profile'] }))
+router.get(
+	'/google/callback',
+	passport.authenticate('google', {
+		successRedirect: '/',
+		failureRedirect: '/login'
+	})
+)
+
 router.post("/login", (req, res, next) => {
     passport.authenticate("local", (err, user, info) => {
       if (err) throw err;
