@@ -16,7 +16,7 @@ const App = () => {
   useEffect(() => {
     axios({
       method: "get",
-      url: "/user",
+      url: "/auth/user",
     }).then((res) => {
       setUser({ ...res.data, loggedIn: true });
     });
@@ -28,8 +28,8 @@ const App = () => {
 
   const handleLogout = () => {
     axios({
-      method: "get",
-      url: "/logout",
+      method: "post",
+      url: "/auth/logout",
     }).then((res) => {
       setUser({ loggedIn: false });
     });

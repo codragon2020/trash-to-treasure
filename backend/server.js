@@ -1,12 +1,12 @@
 // Requiring necessary npm packages
 const express = require("express");
 const path = require("path");
-const loginRoutes = require("../routes/loginRoutes")
+// const loginRoutes = require("../routes/loginRoutes")
 const productRoutes = require("../routes/productRoutes.js");
 const profileRoutes = require("../routes/profileRoutes.js");
 const cors = require("cors");
-const passport = require("passport");
-const passortLocal = require("passport-local").Strategy;
+const passport = require("./passport");
+const passportLocal = require("passport-local").Strategy;
 const cookieParser = require("cookie-parser");
 const bcrypt = require("bcryptjs");
 const session = require("express-session");
@@ -72,13 +72,16 @@ app.use(
 );
 
 app.use(cookieParser("secretcode"));
-app.use(passport.initialize());
-app.use(passport.session());
-require("./passportConfig")(passport);
+
+// ===== Passport ====
+app.use(passport.initialize())
+app.use(passport.session()) // will call the deserializeUser
 
 // ----------------End of Middleware---------------------
 
-app.use("/", loginRoutes);
+// app.use("/", loginRoutes);
+/* Express app ROUTING */
+app.use('/auth', require('./auth'))
 app.use("/profile", profileRoutes); // For future development 
 app.use("/api/products", productRoutes);
 

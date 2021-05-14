@@ -1,35 +1,55 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
+const bcrypt = require('bcryptjs')
+mongoose.promise = Promise
 
-const userSchema = mongoose.Schema(
-  {
-    name: {
-      type: String,
-      required: false,
-    },
-    username: {
-      type: String,
-      required: true
-    },
-    email: {
-      type: String,
-      required: false,
-      unique: false,
-    },
-    password: {
-      type: String,
-      required: true,
-    },
-    isAdmin: {
-      type: Boolean,
-      required: false,
-      default: false,
-    },
-  },
-  {
-    timestamps: true,
-  }
-);
+// Define userSchema
+const userSchema = new Schema({
+	firstName: { type: String, unique: false },
+	lastName: { type: String, unique: false },
+	local: {
+		username: { type: String, unique: false, required: false },
+		password: { type: String, unique: false, required: false }
+	},
+	google: {
+		googleId: { type: String, required: false }
+	},
+	photos: []
+	// local: {
+	// 	email: { type: String, unique: true },
+	// 	password: { type: String }
+	// },
+	// google: {
+	// 	id: { type: String },
+	// 	photos: []
+	// },
+	// firstName: { type: String },
+	// lastName: { type: String }
+})
 
-const User = mongoose.model("User", userSchema);
+// Define schema methods
+userSchema.methods = {
+	checkPassword: function(inputPassword) {
+		return bcrypt.compareSync(inputPassword, this.local.password)
+	},
+	hashPassword: plainTextPassword => {
+		return bcrypt.hashSync(plainTextPassword, 10)
+	}
+}
 
-module.exports = User;
+// Define hooks for pre-saving
+userSchema.pre('save', function(next) {
+	if (!this.local.password) {
+		console.log('=======NO PASSWORD PROVIDED=======')
+		next()
+	} else {
+		this.local.password = this.hashPassword(this.local.password)
+		next()
+	}
+	// this.password = this.hashPassword(this.password)
+	// next()
+})
+
+// Create reference to User & export
+const User = mongoose.model('User', userSchema)
+module.exports = User

@@ -14,7 +14,7 @@ function Authenticate(props) {
   const register = () => {
     axios({
       method: "post",
-      url: "/register",
+      url: "/auth/register",
       data: {
         username: registerUsername,
         password: registerPassword
@@ -31,7 +31,7 @@ function Authenticate(props) {
   const login = () => {
     axios({
       method: "post",
-      url: "/login",
+      url: "/auth/login",
       data: {
         username: loginUsername,
         password: loginPassword
@@ -46,8 +46,8 @@ function Authenticate(props) {
   const responseSuccessGoogle = (response) => {
     console.log(response)
     axios({
-      method: "POST",
-      url: "http://localhost:3000/google",
+      method: "get",
+      url: "/auth/google",
       data: {tokenId: response.tokenId}
     }).then(response => {
       console.log(response);

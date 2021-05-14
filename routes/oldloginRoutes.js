@@ -1,7 +1,8 @@
 const router = require("express").Router();
 const cors = require("cors");
 const passport = require("passport");
-const googleLogin = require("../backend/passportConfig")
+const GoogleStrategy = require('../backend/passport/googleStrategy')
+const googleLogin = require("../backend/passport/localStrategy");
 const passortLocal = require("passport-local").Strategy;
 const cookieParser = require("cookie-parser");
 const bcrypt = require("bcryptjs");
@@ -53,7 +54,16 @@ router.get("/user", (req, res) => {
     res.status(500).send("User not logged in");
   }
 });
+passport.use(GoogleStrategy)
 
-router.post('/google', googleLogin);
+router.post("/google", passport.authenticate("google", { scope: ["profile"] }));
+
+router.get(
+  "/google/callback",
+  passport.authenticate("google", {
+    successRedirect: "/",
+    failureRedirect: "/login",
+  })
+);
 
 module.exports = router;
