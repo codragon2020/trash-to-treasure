@@ -17,7 +17,7 @@ function CreateProduct() {
   const [products, setProduct] = React.useState(INITIAL_PRODUCT);
   const [mediaPreview, setMediaPreview] = React.useState("");
   // const [success, setSuccess] = React.useState(false);
-  const [loading, setLoading] = React.useState(false);
+  // const [loading, setLoading] = React.useState(false);
 
   function handleChange(event) {
     const { name, value, files } = event.target;
@@ -53,7 +53,7 @@ function CreateProduct() {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    setLoading(true);
+    // setLoading(true);
     //cloudinary upload validation
     const image = await handleImageUpload();
     console.log(image);
@@ -79,8 +79,8 @@ function CreateProduct() {
     };
     console.log(payload);
 
-    const response = await axios.post("/api/products", payload);
-    setLoading(false);
+    await axios.post("/api/products", payload);
+    // setLoading(false);
     setProduct(INITIAL_PRODUCT);
     setMediaPreview("");
     // setSuccess(true);

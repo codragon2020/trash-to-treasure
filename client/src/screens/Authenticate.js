@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Redirect } from "react-router-dom";
+// import { Redirect } from "react-router-dom";
 import axios from "axios";
-import GoogleLogin from "react-google-login"
-import { Form, Button } from "react-bootstrap";
+// import GoogleLogin from "react-google-login"
+import { Form } from "react-bootstrap";
 
 function Authenticate(props) {
   const [registerUsername, setRegisterUsername] = useState("");
@@ -10,7 +10,7 @@ function Authenticate(props) {
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [loginState, setLoginState] = useState("login");
-  const [data, setData] = useState(null);
+  // const [data, setData] = useState(null);
   const register = () => {
     axios({
       method: "post",
@@ -43,20 +43,20 @@ function Authenticate(props) {
     });
   };
 
-  const responseSuccessGoogle = (response) => {
-    console.log(response)
-    axios({
-      method: "get",
-      url: "/auth/google",
-      data: {tokenId: response.tokenId}
-    }).then(response => {
-      console.log(response);
-    })
-  }
+  // const responseSuccessGoogle = (response) => {
+  //   console.log(response)
+  //   axios({
+  //     method: "get",
+  //     url: "/auth/google",
+  //     data: {tokenId: response.tokenId}
+  //   }).then(response => {
+  //     console.log(response);
+  //   })
+  // }
 
-  const responseErrorGoogle = (response) => {
+  // const responseErrorGoogle = (response) => {
 
-  }
+  // }
 
   return (
     <Form.Group size="lg">
@@ -156,14 +156,11 @@ function Authenticate(props) {
             ? "Need to Register?"
             : "Already Signed Up? Login"}
         </p>
-        <GoogleLogin
-          clientId="1084092224337-7lgj0bui87cdc7ftptrpu00skccbq2pm.apps.googleusercontent.com"
-          buttonText="Login with Google"
-          onSuccess={responseSuccessGoogle}
-          onFailure={responseErrorGoogle}
-          cookiePolicy={'single_host_origin'}
-          />
+        
+      
+          
       </div>
+      <a href="http://localhost:3001/auth/google">Link to Google</a>
     </Form.Group>
   );
 }
