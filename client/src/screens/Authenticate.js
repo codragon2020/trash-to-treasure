@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-// import { Redirect } from "react-router-dom";
 import axios from "axios";
-// import GoogleLogin from "react-google-login"
 import { Form } from "react-bootstrap";
 
 function Authenticate(props) {
@@ -10,17 +8,16 @@ function Authenticate(props) {
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [loginState, setLoginState] = useState("login");
-  // const [data, setData] = useState(null);
   const register = () => {
     axios({
       method: "post",
       url: "/auth/register",
       data: {
         username: registerUsername,
-        password: registerPassword
+        password: registerPassword,
       },
-      withCredentials: true
-    }).then(res => {
+      withCredentials: true,
+    }).then((res) => {
       setRegisterUsername("");
       setRegisterPassword("");
       console.log(res);
@@ -34,29 +31,14 @@ function Authenticate(props) {
       url: "/auth/login",
       data: {
         username: loginUsername,
-        password: loginPassword
+        password: loginPassword,
       },
-      withCredentials: true
-    }).then(res => {
+      withCredentials: true,
+    }).then((res) => {
       console.log(res);
       props.setUser({ ...res.data.user, loggedIn: true });
     });
   };
-
-  // const responseSuccessGoogle = (response) => {
-  //   console.log(response)
-  //   axios({
-  //     method: "get",
-  //     url: "/auth/google",
-  //     data: {tokenId: response.tokenId}
-  //   }).then(response => {
-  //     console.log(response);
-  //   })
-  // }
-
-  // const responseErrorGoogle = (response) => {
-
-  // }
 
   return (
     <Form.Group size="lg">
@@ -70,7 +52,7 @@ function Authenticate(props) {
                 <input
                   className="form-control"
                   placeholder="First name"
-                  onChange={e => setRegisterUsername(e.target.value)}
+                  onChange={(e) => setRegisterUsername(e.target.value)}
                 />
               </div>
             </Form.Row>
@@ -80,7 +62,7 @@ function Authenticate(props) {
                 <input
                   className="form-control"
                   placeholder="Last name"
-                  onChange={e => setRegisterUsername(e.target.value)}
+                  onChange={(e) => setRegisterUsername(e.target.value)}
                 />
               </div>
             </Form.Row>
@@ -90,7 +72,7 @@ function Authenticate(props) {
                 <input
                   className="form-control"
                   placeholder="Enter username"
-                  onChange={e => setRegisterUsername(e.target.value)}
+                  onChange={(e) => setRegisterUsername(e.target.value)}
                 />
               </div>
             </Form.Row>
@@ -101,7 +83,7 @@ function Authenticate(props) {
                   className="form-control"
                   placeholder="Enter password"
                   type="password"
-                  onChange={e => setRegisterPassword(e.target.value)}
+                  onChange={(e) => setRegisterPassword(e.target.value)}
                 />
               </div>
             </Form.Row>
@@ -123,7 +105,7 @@ function Authenticate(props) {
                 <input
                   placeholder="Enter username"
                   className="form-control"
-                  onChange={e => setLoginUsername(e.target.value)}
+                  onChange={(e) => setLoginUsername(e.target.value)}
                 />
               </div>
             </Form.Row>
@@ -134,7 +116,7 @@ function Authenticate(props) {
                   placeholder="Enter password"
                   className="form-control"
                   type="password"
-                  onChange={e => setLoginPassword(e.target.value)}
+                  onChange={(e) => setLoginPassword(e.target.value)}
                 />
               </div>
             </Form.Row>
@@ -156,9 +138,6 @@ function Authenticate(props) {
             ? "Need to Register?"
             : "Already Signed Up? Login"}
         </p>
-        
-      
-          
       </div>
       <a href="http://localhost:3001/auth/google">Link to Google</a>
     </Form.Group>

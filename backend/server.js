@@ -1,7 +1,6 @@
 // Requiring necessary npm packages
 const express = require("express");
 const path = require("path");
-// const loginRoutes = require("../routes/loginRoutes")
 const productRoutes = require("../routes/productRoutes.js");
 const profileRoutes = require("../routes/profileRoutes.js");
 const cors = require("cors");
@@ -20,10 +19,6 @@ const logger = require("morgan");
 
 // Object Data Modeling utility for Mongo/Node
 const mongoose = require("mongoose");
-
-// Sample Products
-// const products = require("./data/products")
-// const products = require("./data/products.js");
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -56,19 +51,14 @@ connection.on("error", (err) => {
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
   next();
 });
-// app.use(
-//   cors({
-//     origin: "http://localhost:3000", // <-- location of the react app we're connecting to
-//     credentials: true,
-//     methods: "GET, POST, PATCH, DELETE, PUT",
-//     allowedHeaders: "Content-Type, Authorization"
-//   })
-// );
 
 app.use(
   session({
@@ -81,15 +71,15 @@ app.use(
 app.use(cookieParser("secretcode"));
 
 // ===== Passport ====
-app.use(passport.initialize())
-app.use(passport.session()) // will call the deserializeUser
+app.use(passport.initialize());
+app.use(passport.session()); // will call the deserializeUser
 
 // ----------------End of Middleware---------------------
 
 // app.use("/", loginRoutes);
 /* Express app ROUTING */
-app.use('/auth', require('./auth'))
-app.use("/profile", profileRoutes); // For future development 
+app.use("/auth", require("./auth"));
+app.use("/profile", profileRoutes); // For future development
 app.use("/api/products", productRoutes);
 
 app.listen(PORT, function () {

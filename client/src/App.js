@@ -22,10 +22,6 @@ const App = () => {
     });
   }, [Route]);
 
-  // function handleLogout() {
-  //   setUser({ ...user, loggedIn: false });
-  // }
-
   const handleLogout = () => {
     axios({
       method: "post",
@@ -33,7 +29,7 @@ const App = () => {
     }).then((res) => {
       setUser({ loggedIn: false });
     });
-  };  
+  };
 
   return (
     <Router>
@@ -90,11 +86,7 @@ const App = () => {
             }
             exact
           />
-          <Route
-            path="/search/:keyword"
-            component={HomeScreen}
-            exact
-          />
+          <Route path="/search/:keyword" component={HomeScreen} exact />
         </Container>
       </main>
       <Footer />
