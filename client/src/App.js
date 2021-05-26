@@ -16,24 +16,20 @@ const App = () => {
   useEffect(() => {
     axios({
       method: "get",
-      url: "/user",
+      url: "/auth/user",
     }).then((res) => {
       setUser({ ...res.data, loggedIn: true });
     });
   }, [Route]);
 
-  // function handleLogout() {
-  //   setUser({ ...user, loggedIn: false });
-  // }
-
   const handleLogout = () => {
     axios({
-      method: "get",
-      url: "/logout",
+      method: "post",
+      url: "/auth/logout",
     }).then((res) => {
       setUser({ loggedIn: false });
     });
-  };  
+  };
 
   return (
     <Router>
@@ -90,11 +86,7 @@ const App = () => {
             }
             exact
           />
-          <Route
-            path="/search/:keyword"
-            component={HomeScreen}
-            exact
-          />
+          <Route path="/search/:keyword" component={HomeScreen} exact />
         </Container>
       </main>
       <Footer />

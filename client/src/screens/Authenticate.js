@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { Redirect } from "react-router-dom";
 import axios from "axios";
-import { Form, Button } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 
 function Authenticate(props) {
   const [registerUsername, setRegisterUsername] = useState("");
@@ -9,17 +8,16 @@ function Authenticate(props) {
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [loginState, setLoginState] = useState("login");
-  const [data, setData] = useState(null);
   const register = () => {
     axios({
       method: "post",
-      url: "/register",
+      url: "/auth/register",
       data: {
         username: registerUsername,
-        password: registerPassword
+        password: registerPassword,
       },
-      withCredentials: true
-    }).then(res => {
+      withCredentials: true,
+    }).then((res) => {
       setRegisterUsername("");
       setRegisterPassword("");
       console.log(res);
@@ -30,13 +28,13 @@ function Authenticate(props) {
   const login = () => {
     axios({
       method: "post",
-      url: "/login",
+      url: "/auth/login",
       data: {
         username: loginUsername,
-        password: loginPassword
+        password: loginPassword,
       },
-      withCredentials: true
-    }).then(res => {
+      withCredentials: true,
+    }).then((res) => {
       console.log(res);
       props.setUser({ ...res.data.user, loggedIn: true });
     });
@@ -54,7 +52,7 @@ function Authenticate(props) {
                 <input
                   className="form-control"
                   placeholder="First name"
-                  onChange={e => setRegisterUsername(e.target.value)}
+                  onChange={(e) => setRegisterUsername(e.target.value)}
                 />
               </div>
             </Form.Row>
@@ -64,7 +62,7 @@ function Authenticate(props) {
                 <input
                   className="form-control"
                   placeholder="Last name"
-                  onChange={e => setRegisterUsername(e.target.value)}
+                  onChange={(e) => setRegisterUsername(e.target.value)}
                 />
               </div>
             </Form.Row>
@@ -74,7 +72,7 @@ function Authenticate(props) {
                 <input
                   className="form-control"
                   placeholder="Enter username"
-                  onChange={e => setRegisterUsername(e.target.value)}
+                  onChange={(e) => setRegisterUsername(e.target.value)}
                 />
               </div>
             </Form.Row>
@@ -85,7 +83,7 @@ function Authenticate(props) {
                   className="form-control"
                   placeholder="Enter password"
                   type="password"
-                  onChange={e => setRegisterPassword(e.target.value)}
+                  onChange={(e) => setRegisterPassword(e.target.value)}
                 />
               </div>
             </Form.Row>
@@ -107,7 +105,7 @@ function Authenticate(props) {
                 <input
                   placeholder="Enter username"
                   className="form-control"
-                  onChange={e => setLoginUsername(e.target.value)}
+                  onChange={(e) => setLoginUsername(e.target.value)}
                 />
               </div>
             </Form.Row>
@@ -118,7 +116,7 @@ function Authenticate(props) {
                   placeholder="Enter password"
                   className="form-control"
                   type="password"
-                  onChange={e => setLoginPassword(e.target.value)}
+                  onChange={(e) => setLoginPassword(e.target.value)}
                 />
               </div>
             </Form.Row>
@@ -141,6 +139,7 @@ function Authenticate(props) {
             : "Already Signed Up? Login"}
         </p>
       </div>
+      <a href="http://localhost:3001/auth/google">Link to Google</a>
     </Form.Group>
   );
 }

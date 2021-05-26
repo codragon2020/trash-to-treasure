@@ -1,10 +1,10 @@
-import React, { useState, setState } from "react";
+import React from "react";
 import { Route } from "react-router-dom";
 import { Container, Navbar, Nav } from "react-bootstrap";
 import SearchBox from "../SearchBox";
 
 const Header = props => {
-  const [isHidden, setIsHidden] = useState(true);
+  // const [isHidden, setIsHidden] = useState(true);
 
   return (
     <header>
